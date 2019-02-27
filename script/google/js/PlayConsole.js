@@ -45,11 +45,17 @@ const ui_element_creator = (type, props, children) => {
     return elem;
 }
 
-let $menu = document.querySelector('#TabPanel_tab_1_0');
-$menu.append(ui_element_creator('a', {id: 'load-all-post', href: 'javascript:;', event: {click: () => loadAllPost()}},
-    '[显示全部]'));
+setTimeout(insertButton, 5000)
 
-function loadAllPost() {
+function insertButton() {
+    alert('insert start')
+    let $menu = document.querySelector('#TabPanel_tab_1_0');
+    $menu.append(ui_element_creator('a', {id: 'load-all-post', href: 'javascript:;', event: {click: () => showToast()}},
+        '[显示全部]'));
+    alert('insert end')
+}
+
+function showToast() {
     alert('Hello, world!');
 }
 

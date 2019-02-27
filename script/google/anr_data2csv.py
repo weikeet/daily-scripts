@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup, Comment, sys
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
-file_object = open('AnrTable.html')
+file_object = open('AnrPage.html')
 try:
     htmlStr = file_object.read()
 
