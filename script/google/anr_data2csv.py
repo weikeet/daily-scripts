@@ -70,8 +70,8 @@ def pre_handle_data(html, myWriter):
 
 
 if __name__ == '__main__':
-    file_object0 = open('anr0.html')
-    file_object1 = open('anr1.html')
+    file_object0 = open('AnrPage0.html')
+    file_object1 = open('AnrPage1.html')
     try:
         with open('t.csv', 'wb') as myFile:
             myWriter = csv.writer(myFile)

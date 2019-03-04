@@ -113,7 +113,7 @@ def load_page_data(login_url, login_name, login_passwd, page_count):
     password_next.click()
     time.sleep(10)
 
-    with open('playAnr2file.csv', 'wb') as myFile:
+    with open('playAnr2file1.csv', 'wb') as myFile:
         myWriter = csv.writer(myFile)
         myWriter.writerow(['信息', '位置', '报告', '受影响用户数量', '错误信息', '详细错误链接'])
 

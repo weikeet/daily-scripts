@@ -116,7 +116,7 @@ def login(login_url, login_name, login_passwd):
     # soup = BeautifulSoup(html,'lxml')
     pre_handle_data(html, driver)
     print('OK0')
-    # file = open("anr0.html", "w")
+    # file = open("AnrPage0.html", "w")
     # file.write(str(soup))
 
     next_page_button = driver.find_element_by_xpath(
@@ -128,7 +128,7 @@ def login(login_url, login_name, login_passwd):
     # soup = BeautifulSoup(html, 'lxml')
     pre_handle_data(html, driver)
     print('OK1')
-    # file = open("anr1.html", "w")
+    # file = open("AnrPage1.html", "w")
     # file.write(str(soup))
 
     play_cookies = driver.get_cookies()
