@@ -204,3 +204,18 @@ if __name__ == '__main__':
     password = getpass.getpass('Password: ')
 
     load_page_data(url, name, password, int(page_count))
+
+
+# def login(self):
+#     print
+#     "\nTop15WebOperator login() start"
+#     self.driver.get("https://slack.ihandysoft.com/webapp/goal/U0C5SPNQY/view")
+#
+#     print
+#     "Top15WebOperator login() finish and wait 100s"
+#
+#     WebDriverWait(self.driver, 300).until(
+#         EC.element_to_be_clickable((By.XPATH, "//div[@id='main']/div/div/div/div[1]/div[1]/button[1]")));
+#
+#     print
+#     "Top15WebOperator login() finish and waiting finish\n"
