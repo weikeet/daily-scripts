@@ -5,7 +5,7 @@ import csv
 from selenium import webdriver
 from bs4 import BeautifulSoup
 
-d = {}
+data = {}
 file_name = ''
 data_type = 0
 
@@ -76,7 +76,7 @@ def get_detail_crash(html):
         return detailErrorInfo
 
 
-def get_table_data(session_table, driver):
+def get_table_data(session_table):
     trs = session_table.findAll('tr')
     for tr in trs:
         # link
@@ -100,47 +100,35 @@ def get_table_data(session_table, driver):
                 numAffected = int(p.get_text().replace('\n', ' '))
 
         href = 'https://play.google.com/apps/publish/?account=8505122062204140606' + a.get('href')
-        print(errorLocation + ' -- ' + errorDescription + ' -- ' + str(reportsTotal) + ' -- ' + str(numAffected) + ' -- ' + href)
+        print(errorLocation + ' -- ' + errorDescription + ' -- ' + str(reportsTotal) + ' -- ' + str(
+            numAffected) + ' -- ' + href)
 
-        driver.get(href)
-        time.sleep(8)
-
-        detail_html = driver.page_source
-        if data_type == 0:
-            detailErrorInfo = get_detail_anr(detail_html)
+        key = errorLocation + errorDescription
+        if key in data:
+            value = data[key]
+            reportsTotal = reportsTotal + value[2]
+            numAffected = numAffected + value[3]
+            hrefList = value[4]
+            hrefList.insert(len(hrefList), href)
         else:
-            detailErrorInfo = get_detail_crash(detail_html)
-
-        if errorLocation in d:
-            value = d[errorLocation]
-            reportsTotal = reportsTotal + value[0]
-            numAffected = numAffected + value[1]
-            errorDescription = value[2]
-            detailErrorInfo = value[3]
-            href = href + ', ' + value[4]
-        d[errorLocation] = [reportsTotal, numAffected, errorDescription, detailErrorInfo, href]
-
-        driver.back()
-        time.sleep(4)
+            hrefList = [href]
+        data[key] = [errorLocation, errorDescription, reportsTotal, numAffected, hrefList]
 
 
-def pre_handle_data(html, driver):
+def pre_handle_data(html):
     soup = BeautifulSoup(html, 'lxml')
     session_tables = soup.findAll('section')
     for session_table in session_tables:
         if session_table.get('role') == 'article':
-            get_table_data(session_table, driver)
+            get_table_data(session_table)
 
 
 def write_data2file():
-    for k, v in d.items():
-        print(k + ' =-= ' + str(v))
-
     with open(file_name + '.csv', 'w') as myFile:
         myWriter = csv.writer(myFile)
         myWriter.writerow(['位置', '信息', '报告', '受影响用户数量', '错误信息', '详细错误链接'])
-        for k,v in d.items():
-            myWriter.writerow([k, v[2], str(v[0]), str(v[1]), v[3], v[4]])
+        for k, v in data.items():
+            myWriter.writerow([v[0], v[1], str(v[2]), str(v[3]), v[5], str(v[4])])
 
 
 def load_page_data(target_url, email, pw, page_count):
@@ -155,19 +143,18 @@ def load_page_data(target_url, email, pw, page_count):
     identifier_next.click()
     time.sleep(4)
 
-    # password_element = driver.find_element_by_xpath('//*[@id="password"]/div[1]/div/div[1]/input')
-    password_element = driver.find_element_by_id('password')
+    password_element = driver.find_element_by_xpath('//*[@id="password"]/div[1]/div/div[1]/input')
+    # password_element = driver.find_element_by_id('password')
     password_element.send_keys(pw)
     password_next = driver.find_element_by_id('passwordNext')
     password_next.click()
     time.sleep(10)
 
-    print('Start time:')
-    print(time.time())
+    print('开始时间:' + str(time.time()))
 
     html = driver.page_source
-    pre_handle_data(html, driver)
-    print('加载第1页数据完成')
+    pre_handle_data(html)
+    print('第1页数据加载完成')
 
     curr_page = 1
     while curr_page < page_count:
@@ -176,26 +163,44 @@ def load_page_data(target_url, email, pw, page_count):
         time.sleep(8)
 
         html = driver.page_source
-        pre_handle_data(html, driver)
+        pre_handle_data(html)
 
         curr_page = curr_page + 1
-        print('加载第' + str(curr_page) + '页数据完成')
+        print('第' + str(curr_page) + '页数据加载完成')
+
+    print('开始加载每项数据的详细错误信息')
+    for k, v in data.items():
+        curr_page_url = v[4][0]
+        print('当前页面: ' + curr_page_url)
+        driver.get(curr_page_url)
+        time.sleep(8)
+
+        detail_html = driver.page_source
+        if data_type == 0:
+            detailErrorInfo = get_detail_anr(detail_html)
+        else:
+            detailErrorInfo = get_detail_crash(detail_html)
+        v.insert(len(v), detailErrorInfo)
+    print('每项数据的详细错误信息加载完成')
 
     driver.close()
 
     write_data2file()
-    print('End time: ' + str(time.time()))
+    print('结束时间: ' + str(time.time()))
 
 
 if __name__ == '__main__':
     data_type = input('Please input fetch data type(0: anr, 1: crash): ')
-    # url = input('Please input anr/crash url: ')
+    url = input('Please input fetch anr/crash url: ')
     page_count = input('Please input fetch page count: ')
     file_name = input('Please input file name: ')
-    # anr
-    url = 'https://play.google.com/apps/publish/?account=8505122062204140606#AndroidMetricsErrorsPlace:p=com.mobile.security.antivirus.applock.wifi&appid=4972898036482753524&appVersion=PRODUCTION&errorType=ANR'
+
+    # anrl
+    # url = 'https://play.google.com/apps/publish/?account=8505122062204140606#AndroidMetricsErrorsPlace:p=com.mobile.security.antivirus.applock.wifi&appid=4972898036482753524&appVersion=PRODUCTION&errorType=ANR'
     # crash
     # url = 'https://play.google.com/apps/publish/?account=8505122062204140606#AndroidMetricsErrorsPlace:p=com.mobile.security.antivirus.applock.wifi&appid=4972898036482753524&appVersion=PRODUCTION'
-    name = input('Please input google email: ')
+
+    name = input('Google email: ')
     password = getpass.getpass('Password: ')
+
     load_page_data(url, name, password, int(page_count))

@@ -26,7 +26,7 @@ try:
 
         row = title.string + ',' + subtitle.text.replace(issue.string, '') + ',' + issue.string + ',' + number[0].find(
             'span').text + ',' + number[1].find('span').text + ','+href
-        print row
+        print(row)
         csv.write(row + '\n')
 
 finally:
