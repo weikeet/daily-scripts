@@ -2,12 +2,20 @@
 import getpass
 import time
 import csv
-from selenium import webdriver
-from bs4 import BeautifulSoup
 
+from bs4 import BeautifulSoup
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+# key: errorLocation + errorDescription
+# value: [errorLocation, errorDescription, reportsTotal, numAffected, hrefList]
+# hrefList: [href, href, ...]
 data = {}
-file_name = ''
+# 0: ANR, 1: Crash
 data_type = 0
+file_name = ''
 
 
 def get_detail_anr(html):
@@ -109,6 +117,8 @@ def get_table_data(session_table):
             reportsTotal = reportsTotal + value[2]
             numAffected = numAffected + value[3]
             hrefList = value[4]
+            if href in hrefList:
+                continue
             hrefList.insert(len(hrefList), href)
         else:
             hrefList = [href]
@@ -126,7 +136,7 @@ def pre_handle_data(html):
 def write_data2file():
     with open(file_name + '.csv', 'w') as myFile:
         myWriter = csv.writer(myFile)
-        myWriter.writerow(['位置', '信息', '报告', '受影响用户数量', '错误信息', '详细错误链接'])
+        myWriter.writerow(['位置', '描述信息', '报告', '影响数量', '详细错误信息', '详细错误链接'])
         for k, v in data.items():
             myWriter.writerow([v[0], v[1], str(v[2]), str(v[3]), v[5], str(v[4])])
 
@@ -134,24 +144,23 @@ def write_data2file():
 def load_page_data(target_url, email, pw, page_count):
     driver = webdriver.Chrome()
     driver.get(target_url)
-    time.sleep(4)
 
+    WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, 'identifierNext')))
     # account_element = driver.find_element_by_xpath('//*[@id="identifierId"]')
     account_element = driver.find_element_by_id('identifierId')
     account_element.send_keys(email)
     identifier_next = driver.find_element_by_id('identifierNext')
     identifier_next.click()
-    time.sleep(4)
 
+    WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, 'passwordNext')))
     password_element = driver.find_element_by_xpath('//*[@id="password"]/div[1]/div/div[1]/input')
-    # password_element = driver.find_element_by_id('password')
     password_element.send_keys(pw)
     password_next = driver.find_element_by_id('passwordNext')
     password_next.click()
-    time.sleep(10)
 
     print('开始时间:' + str(time.time()))
 
+    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[2]/div/div[2]/div/div[3]/div/div[2]/div/div[1]/div/div/div[2]/div/section/section/div/div/div/span[2]/div/button[2]')))
     html = driver.page_source
     pre_handle_data(html)
     print('第1页数据加载完成')
@@ -160,7 +169,10 @@ def load_page_data(target_url, email, pw, page_count):
     while curr_page < page_count:
         next_page_button = driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div/div[3]/div/div[2]/div/div[1]/div/div/div[2]/div/section/section/div/div/div/span[2]/div/button[2]')
         next_page_button.click()
-        time.sleep(8)
+
+        print('start wait next page: ' + str(time.time()))
+        WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[2]/div/div[2]/div/div[3]/div/div[2]/div/div[1]/div/div/div[2]/div/section/section/div/table/tbody[1]/tr[1]/td[5]/div/button')))
+        print('end wait next page: ' + str(time.time()))
 
         html = driver.page_source
         pre_handle_data(html)
@@ -173,7 +185,12 @@ def load_page_data(target_url, email, pw, page_count):
         curr_page_url = v[4][0]
         print('当前页面: ' + curr_page_url)
         driver.get(curr_page_url)
-        time.sleep(8)
+
+        if data_type == 0:
+            WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[2]/div/div[2]/div/div[3]/div/div[2]/div/div[1]/div/div/div[2]/div[2]/section/div[5]/div/section/div[3]/div/button')))
+        else:
+            # next page
+            WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[2]/div/div[2]/div/div[3]/div/div[2]/div/div[1]/div/div/div[2]/div[2]/section/div[5]/div/section/div[1]/div[2]/span[2]/div/button[2]')))
 
         detail_html = driver.page_source
         if data_type == 0:
@@ -190,32 +207,20 @@ def load_page_data(target_url, email, pw, page_count):
 
 
 if __name__ == '__main__':
-    data_type = input('Please input fetch data type(0: anr, 1: crash): ')
-    url = input('Please input fetch anr/crash url: ')
-    page_count = input('Please input fetch page count: ')
+    url = input('Please input anr/crash url: ')
+    page_count = input('Please input page count: ')
     file_name = input('Please input file name: ')
+    email = input('Gmail: ')
+    password = getpass.getpass('Password: ')
 
     # anrl
     # url = 'https://play.google.com/apps/publish/?account=8505122062204140606#AndroidMetricsErrorsPlace:p=com.mobile.security.antivirus.applock.wifi&appid=4972898036482753524&appVersion=PRODUCTION&errorType=ANR'
     # crash
     # url = 'https://play.google.com/apps/publish/?account=8505122062204140606#AndroidMetricsErrorsPlace:p=com.mobile.security.antivirus.applock.wifi&appid=4972898036482753524&appVersion=PRODUCTION'
 
-    name = input('Google email: ')
-    password = getpass.getpass('Password: ')
+    if 'errorType=ANR' in url:
+        data_type = 0
+    else:
+        data_type = 1
 
-    load_page_data(url, name, password, int(page_count))
-
-
-# def login(self):
-#     print
-#     "\nTop15WebOperator login() start"
-#     self.driver.get("https://slack.ihandysoft.com/webapp/goal/U0C5SPNQY/view")
-#
-#     print
-#     "Top15WebOperator login() finish and wait 100s"
-#
-#     WebDriverWait(self.driver, 300).until(
-#         EC.element_to_be_clickable((By.XPATH, "//div[@id='main']/div/div/div/div[1]/div[1]/button[1]")));
-#
-#     print
-#     "Top15WebOperator login() finish and waiting finish\n"
+    load_page_data(url, email, password, int(page_count))
