@@ -157,7 +157,7 @@ def load_page_data(target_url, email, pw, page_count):
     password_next = driver.find_element_by_id('passwordNext')
     password_next.click()
 
-    print('开始时间:' + str(time.time()))
+    print('开始时间:' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
 
     WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH,
                                                                 '/html/body/div[2]/div/div[2]/div/div[2]/div/div[3]/div/div[2]/div/div[1]/div/div/div[2]/div/section/section/div/div/div/span[2]/div/button[2]')))
