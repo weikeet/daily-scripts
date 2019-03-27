@@ -136,8 +136,14 @@ def write_data2file():
     with open(file_name + '.csv', 'w') as myFile:
         myWriter = csv.writer(myFile)
         myWriter.writerow(['位置', '描述信息', '报告', '影响数量', '详细错误信息', '详细错误链接'])
-        for k, v in data.items():
-            myWriter.writerow([v[0], v[1], str(v[2]), str(v[3]), v[5], str(v[4])])
+        for value in data.values():
+            links = ''
+            if value[4] is None:
+                print('write_data2file links is none')
+                continue
+            for link in value[4]:
+                links = links + link + '\n'
+            myWriter.writerow([value[0], value[1], str(value[2]), str(value[3]), value[5], links])
 
 
 def load_page_data(target_url, email, pw, page_count):
