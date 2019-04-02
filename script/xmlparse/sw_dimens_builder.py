@@ -8,7 +8,7 @@ import xml.dom.minidom
 baseDp = 360
 dimenTypes = [300, 320, 360, 384, 392, 411, 440, 480, 533, 592, 640]
 
-moduleName = 'app'
+moduleName = 'swtest'
 rootPath = os.path.abspath('')
 resPath = rootPath + '/' + moduleName + '/src/main/res'
 
