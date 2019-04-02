@@ -8,7 +8,7 @@ import xml.dom.minidom
 baseDp = 360
 dimenTypes = [300, 320, 360, 384, 392, 411, 440, 480, 533, 592, 640]
 
-moduleName = 'swtest'
+moduleName = 'swalltest'
 rootPath = os.path.abspath('')
 resPath = rootPath + '/' + moduleName + '/src/main/res'
 
@@ -32,7 +32,31 @@ def write_xml_data(dimen_type, dimen_data):
     file.close()
 
 
+def generate_default_dimens():
+    xmlData = '<?xml version="1.0" encoding="utf-8"?>\n<resources>'
+
+    dimenValue = 1
+    while dimenValue <= baseDp:
+        row = '\n    <dimen name="%s">%sdp</dimen>' % ('dp_%d' % dimenValue, dimenValue)
+        xmlData = xmlData + row
+        dimenValue = dimenValue + 1
+    xmlData = xmlData + '\n</resources>'
+
+    xmlPath = resPath + '/values'
+    isExists = os.path.exists(xmlPath)
+    if not isExists:
+        os.makedirs(xmlPath)
+
+    file = open(xmlPath + '/dimens.xml', "w")
+    file.write(xmlData)
+    file.close()
+
+    print('generate default dimens finished')
+
+
 if __name__ == '__main__':
+    generate_default_dimens()
+
     root = xml.dom.minidom.parse(resPath + '/values/dimens.xml').documentElement
     dimens = root.getElementsByTagName('dimen')
 
