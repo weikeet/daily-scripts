@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="x1">0.7500px</dimen>
+    <dimen name="x4">3.0000px</dimen>
+    <dimen name="x8">6.0000px</dimen>
+    <dimen name="x12">9.0000px</dimen>
+    <dimen name="x16">12.0000px</dimen>
+    <dimen name="x20">15.0000px</dimen>
+    <dimen name="x24">18.0000px</dimen>
+    <dimen name="x80">60.0000px</dimen>
+    <dimen name="x100">75.0000px</dimen>
+    <dimen name="x120">90.0000px</dimen>
+    <dimen name="x160">120.0000px</dimen>
+    <dimen name="x180">135.0000px</dimen>
+    <dimen name="x240">180.0000px</dimen>
+    <dimen name="y100">75.0000px</dimen>
+    <dimen name="y120">90.0000px</dimen>
+    <dimen name="y160">120.0000px</dimen>
+    <dimen name="y240">180.0000px</dimen>
+</resources>
