@@ -72,6 +72,52 @@ def get_detail_crash(html):
     return detailErrorInfo
 
 
+def longest_common_prefix(strs):
+    if not strs: return ''
+    ss = list(map(set, zip(*strs)))
+    res = ''
+    for i, x in enumerate(ss):
+        x = list(x)
+        if len(x) > 1:
+            break
+        res = res + x[0]
+    return res
+
+
+def calc_similar(key, dataKey):
+    commonStr = longest_common_prefix([key, dataKey])
+    commonLen = len(commonStr)
+
+    if commonLen == 0:
+        return False
+
+    if len(key) <= len(dataKey):
+        minLen = len(key)
+    else:
+        minLen = len(dataKey)
+
+    print('key:', key, 'dataKey:', dataKey, 'commonStr:', commonStr)
+    print('commonLen:', str(commonLen), 'minLen:', str(minLen))
+    print(str(commonLen / minLen))
+
+    if minLen <= 10 and minLen != commonLen:
+        return False
+
+    if minLen <= 20 and commonLen / minLen >= 0.95:
+        return True
+
+    if minLen <= 30 and commonLen / minLen >= 0.9:
+        return True
+
+    if minLen <= 40 and commonLen / minLen >= 0.85:
+        return True
+
+    if minLen > 40 and commonLen / minLen >= 0.82:
+        return True
+
+    return False
+
+
 def get_table_data(session_table):
     trs = session_table.findAll('tr')
     if trs is None:
@@ -117,9 +163,32 @@ def get_table_data(session_table):
             if href in hrefList:
                 continue
             hrefList.insert(len(hrefList), href)
+            data[key] = [errorLocation, errorDescription, reportsTotal, numAffected, hrefList, '']
         else:
-            hrefList = [href]
-        data[key] = [errorLocation, errorDescription, reportsTotal, numAffected, hrefList]
+            hrefList = []
+            similar = False
+            originErrorLocation = errorLocation
+            originErrorDesc = errorDescription
+            originReports = reportsTotal
+            originAffected = numAffected
+            extraInfo = ''
+            for dataKey in data.keys():
+                if calc_similar(key, dataKey):
+                    similar = True
+                    value = data[dataKey]
+                    errorLocation = value[0]
+                    errorDescription = value[1]
+                    reportsTotal = reportsTotal + value[2]
+                    numAffected = numAffected + value[3]
+                    hrefList = value[4]
+                    hrefList.insert(len(hrefList), href)
+                    extraInfo = value[5]
+                    break
+            if similar:
+                extraInfo = extraInfo + '\n' + originErrorLocation + ', ' + originErrorDesc + ', ' + str(originReports) + ', ' + str(originAffected) + ', ' + href
+            else:
+                hrefList = [href]
+            data[key] = [errorLocation, errorDescription, reportsTotal, numAffected, hrefList, extraInfo]
 
 
 def pre_handle_data(html):
@@ -135,7 +204,7 @@ def pre_handle_data(html):
 def write_data2file():
     with open(file_name + '.csv', 'w') as myFile:
         myWriter = csv.writer(myFile)
-        myWriter.writerow(['位置', '描述信息', '报告', '影响数量', '详细错误信息', '详细错误链接'])
+        myWriter.writerow(['位置', '描述信息', '报告', '影响数量', '详细错误信息', '详细错误链接', '备注'])
         for value in data.values():
             links = ''
             if value[4] is None:
@@ -143,7 +212,7 @@ def write_data2file():
                 continue
             for link in value[4]:
                 links = links + link + '\n'
-            myWriter.writerow([value[0], value[1], str(value[2]), str(value[3]), value[5], links])
+            myWriter.writerow([value[0], value[1], str(value[2]), str(value[3]), value[6], links, value[5]])
 
 
 def load_page_data(target_url, email, pw, page_count):
@@ -189,7 +258,7 @@ def load_page_data(target_url, email, pw, page_count):
         print('第' + str(curr_page) + '页数据加载完成')
 
     print('开始加载每项数据的详细错误信息')
-    for k, v in data.items():
+    for v in data.values():
         curr_page_url = v[4][0]
         print('当前页面: ' + curr_page_url)
         driver.get(curr_page_url)
@@ -222,10 +291,8 @@ if __name__ == '__main__':
     password = getpass.getpass('Password: ')
     page_count = input('Please input page count: ')
 
-    # anr example
-    # url = 'https://play.google.com/apps/publish/?account=8505122062204140606#AndroidMetricsErrorsPlace:p=com.mobile.security.antivirus.applock.wifi&appid=4972898036482753524&appVersion=PRODUCTION&errorType=ANR'
-    # crash example
-    # url = 'https://play.google.com/apps/publish/?account=8505122062204140606#AndroidMetricsErrorsPlace:p=com.mobile.security.antivirus.applock.wifi&appid=4972898036482753524&appVersion=PRODUCTION'
+    if url is None or url == '':
+        url = 'https://play.google.com/apps/publish/?account=8505122062204140606#AndroidMetricsErrorsPlace:p=com.mobile.security.antivirus.applock.wifi&appid=4972898036482753524&appVersion=PRODUCTION&errorType=ANR'
 
     if 'errorType=ANR' in url:
         data_type = 0
