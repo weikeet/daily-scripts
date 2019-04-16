@@ -76,7 +76,7 @@ def longest_common_prefix(strs):
     if not strs: return ''
     ss = list(map(set, zip(*strs)))
     res = ''
-    for i, x in enumerate(ss):
+    for x in enumerate(ss):
         x = list(x)
         if len(x) > 1:
             break
@@ -96,23 +96,29 @@ def calc_similar(key, dataKey):
     else:
         minLen = len(dataKey)
 
-    print('key:', key, 'dataKey:', dataKey, 'commonStr:', commonStr)
-    print('commonLen:', str(commonLen), 'minLen:', str(minLen))
-    print(str(commonLen / minLen))
-
-    if minLen <= 10 and minLen != commonLen:
-        return False
+    if minLen <= 10 and minLen == commonLen:
+        print('1 key:', key, 'dataKey:', dataKey, 'commonStr:', commonStr)
+        print('commonLen:', str(commonLen), 'minLen:', str(minLen), 'rate:', str(commonLen / minLen))
+        return True
 
     if minLen <= 20 and commonLen / minLen >= 0.95:
+        print('2 key:', key, 'dataKey:', dataKey, 'commonStr:', commonStr)
+        print('commonLen:', str(commonLen), 'minLen:', str(minLen), 'rate:', str(commonLen / minLen))
         return True
 
     if minLen <= 30 and commonLen / minLen >= 0.9:
+        print('3 key:', key, 'dataKey:', dataKey, 'commonStr:', commonStr)
+        print('commonLen:', str(commonLen), 'minLen:', str(minLen), 'rate:', str(commonLen / minLen))
         return True
 
     if minLen <= 40 and commonLen / minLen >= 0.85:
+        print('4 key:', key, 'dataKey:', dataKey, 'commonStr:', commonStr)
+        print('commonLen:', str(commonLen), 'minLen:', str(minLen), 'rate:', str(commonLen / minLen))
         return True
 
-    if minLen > 40 and commonLen / minLen >= 0.82:
+    if minLen > 40 and commonLen / minLen >= 0.80:
+        print('x key:', key, 'dataKey:', dataKey, 'commonStr:', commonStr)
+        print('commonLen:', str(commonLen), 'minLen:', str(minLen), 'rate:', str(commonLen / minLen))
         return True
 
     return False
