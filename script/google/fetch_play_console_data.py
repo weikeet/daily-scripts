@@ -25,7 +25,6 @@ def get_detail_anr(html):
         print('get_detail_anr gwtHtmlDivs is none or gwtHtmlDivs.length < 2')
         return ''
 
-    print(gwtHtmlDivs[1])
     detailErrorInfo = ' '.join(str(gwtHtmlDivs[1].string).replace('\n', ' ').split()) + '\n'
 
     gwtHtmlDiv1P = gwtHtmlDivs[1].parent
@@ -76,7 +75,7 @@ def longest_common_prefix(strs):
     if not strs: return ''
     ss = list(map(set, zip(*strs)))
     res = ''
-    for x in enumerate(ss):
+    for i, x in enumerate(ss):
         x = list(x)
         if len(x) > 1:
             break
@@ -161,7 +160,9 @@ def get_table_data(session_table):
             numAffected) + ' -- ' + href)
 
         key = errorLocation + errorDescription
+        print('key', key)
         if key in data:
+            print('key in data')
             value = data[key]
             reportsTotal = reportsTotal + value[2]
             numAffected = numAffected + value[3]
@@ -171,6 +172,7 @@ def get_table_data(session_table):
             hrefList.insert(len(hrefList), href)
             data[key] = [errorLocation, errorDescription, reportsTotal, numAffected, hrefList, '']
         else:
+            print('key not in data')
             hrefList = []
             similar = False
             originErrorLocation = errorLocation
@@ -191,8 +193,10 @@ def get_table_data(session_table):
                     extraInfo = value[5]
                     break
             if similar:
+                print('key not in data', 'exist key similar, originKey', originErrorLocation+originErrorDesc)
                 extraInfo = extraInfo + '\n' + originErrorLocation + ', ' + originErrorDesc + ', ' + str(originReports) + ', ' + str(originAffected) + ', ' + href
             else:
+                print('key not in data', 'not exist key similar')
                 hrefList = [href]
             data[key] = [errorLocation, errorDescription, reportsTotal, numAffected, hrefList, extraInfo]
 
@@ -238,7 +242,7 @@ def load_page_data(target_url, email, pw, page_count):
     password_next = driver.find_element_by_id('passwordNext')
     password_next.click()
 
-    print('开始时间:' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+    print('开始时间: ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
 
     WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH,
                                                                 '/html/body/div[2]/div/div[2]/div/div[2]/div/div[3]/div/div[2]/div/div[1]/div/div/div[2]/div/section/section/div/div/div/span[2]/div/button[2]')))
