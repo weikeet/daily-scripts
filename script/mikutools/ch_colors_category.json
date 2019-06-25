@@ -1,0 +1,355 @@
+{
+  "tag_red": [
+    {
+      "color_name": "润红",
+      "color_pinyin": "RUNHONG",
+      "color_hex_value": "#f7cdbc",
+      "color_rgb_value": "247,205,188"
+    },
+    {
+      "color_name": "淡桃红",
+      "color_pinyin": "DANTAOHONG",
+      "color_hex_value": "#f6cec1",
+      "color_rgb_value": "246,206,193"
+    },
+    {
+      "color_name": "桃红",
+      "color_pinyin": "TAOHONG",
+      "color_hex_value": "#f0ada0",
+      "color_rgb_value": "240,173,160"
+    },
+    {
+      "color_name": "颊红",
+      "color_pinyin": "JIAHONG",
+      "color_hex_value": "#eeaa9c",
+      "color_rgb_value": "238,170,156"
+    },
+    {
+      "color_name": "淡罂粟红",
+      "color_pinyin": "DANYINGSUHONG",
+      "color_hex_value": "#eea08c",
+      "color_rgb_value": "238,160,140"
+    }
+  ],
+  "tag_orange": [
+    {
+      "color_name": "淡橘橙",
+      "color_pinyin": "DANJUCHENG",
+      "color_hex_value": "#fba414",
+      "color_rgb_value": "251,164,20"
+    },
+    {
+      "color_name": "橘橙",
+      "color_pinyin": "JUCHENG",
+      "color_hex_value": "#f97d1c",
+      "color_rgb_value": "249,125,28"
+    },
+    {
+      "color_name": "美人焦橙",
+      "color_pinyin": "MEIRENJIAOCHENG",
+      "color_hex_value": "#fa7e23",
+      "color_rgb_value": "250,126,35"
+    },
+    {
+      "color_name": "海螺橙",
+      "color_pinyin": "HAILUOCHENG",
+      "color_hex_value": "#f0945d",
+      "color_rgb_value": "240,148,93"
+    },
+    {
+      "color_name": "金莲花橙",
+      "color_pinyin": "JINLIANHUACHENG",
+      "color_hex_value": "#f86b1d",
+      "color_rgb_value": "248,107,29"
+    }
+  ],
+  "tag_yellow": [
+    {
+      "color_name": "杏仁黄",
+      "color_pinyin": "XINGRENHUANG",
+      "color_hex_value": "#f7e8aa",
+      "color_rgb_value": "247,232,170"
+    },
+    {
+      "color_name": "茉莉黄",
+      "color_pinyin": "MOLIHUANG",
+      "color_hex_value": "#f8df72",
+      "color_rgb_value": "248,223,114"
+    },
+    {
+      "color_name": "麦秆黄",
+      "color_pinyin": "MAIGANHUANG",
+      "color_hex_value": "#f8df70",
+      "color_rgb_value": "248,223,112"
+    },
+    {
+      "color_name": "油菜花黄",
+      "color_pinyin": "YOUCAIHUAHUANG",
+      "color_hex_value": "#fbda41",
+      "color_rgb_value": "251,218,65"
+    },
+    {
+      "color_name": "佛手黄",
+      "color_pinyin": "FOSHOUHUANG",
+      "color_hex_value": "#fed71a",
+      "color_rgb_value": "254,215,26"
+    }
+  ],
+  "tag_green": [
+    {
+      "color_name": "新禾绿",
+      "color_pinyin": "XINHELV",
+      "color_hex_value": "#d2b116",
+      "color_rgb_value": "210,177,22"
+    },
+    {
+      "color_name": "淡灰绿",
+      "color_pinyin": "DANHUILV",
+      "color_hex_value": "#ad9e5f",
+      "color_rgb_value": "173,158,95"
+    },
+    {
+      "color_name": "草灰绿",
+      "color_pinyin": "CAOHUILV",
+      "color_hex_value": "#8e804b",
+      "color_rgb_value": "142,128,75"
+    },
+    {
+      "color_name": "苔绿",
+      "color_pinyin": "TAILV",
+      "color_hex_value": "#887322",
+      "color_rgb_value": "136,115,34"
+    },
+    {
+      "color_name": "碧螺春绿",
+      "color_pinyin": "BILUOCHUNLV",
+      "color_hex_value": "#867018",
+      "color_rgb_value": "134,112,24"
+    }
+  ],
+  "tag_cyan": [
+    {
+      "color_name": "鲛青",
+      "color_pinyin": "JIAOQING",
+      "color_hex_value": "#87723e",
+      "color_rgb_value": "135,114,62"
+    },
+    {
+      "color_name": "花青",
+      "color_pinyin": "HUAQING",
+      "color_hex_value": "#2376b7",
+      "color_rgb_value": "35,118,183"
+    },
+    {
+      "color_name": "群青",
+      "color_pinyin": "QUNQING",
+      "color_hex_value": "#1772b4",
+      "color_rgb_value": "23,114,180"
+    },
+    {
+      "color_name": "霁青",
+      "color_pinyin": "JIQING",
+      "color_hex_value": "#63bbd0",
+      "color_rgb_value": "99,187,208"
+    },
+    {
+      "color_name": "碧青",
+      "color_pinyin": "BIQING",
+      "color_hex_value": "#5cb3cc",
+      "color_rgb_value": "92,179,204"
+    }
+  ],
+  "tag_blue": [
+    {
+      "color_name": "景泰蓝",
+      "color_pinyin": "JINGTAILAN",
+      "color_hex_value": "#2775b6",
+      "color_rgb_value": "39,117,182"
+    },
+    {
+      "color_name": "尼罗蓝",
+      "color_pinyin": "NILUOLAN",
+      "color_hex_value": "#2474b5",
+      "color_rgb_value": "36,116,181"
+    },
+    {
+      "color_name": "远天蓝",
+      "color_pinyin": "YUANTIANLAN",
+      "color_hex_value": "#d0dfe6",
+      "color_rgb_value": "208,223,230"
+    },
+    {
+      "color_name": "星蓝",
+      "color_pinyin": "XINGLAN",
+      "color_hex_value": "#93b5cf",
+      "color_rgb_value": "147,181,207"
+    },
+    {
+      "color_name": "羽扇豆蓝",
+      "color_pinyin": "YUSHANDOULAN",
+      "color_hex_value": "#619ac3",
+      "color_rgb_value": "97,154,195"
+    }
+  ],
+  "tag_purple": [
+    {
+      "color_name": "貂紫",
+      "color_pinyin": "DIAOZI",
+      "color_hex_value": "#5d3131",
+      "color_rgb_value": "93,49,49"
+    },
+    {
+      "color_name": "暗玉紫",
+      "color_pinyin": "ANYUZI",
+      "color_hex_value": "#5c2223",
+      "color_rgb_value": "92,34,35"
+    },
+    {
+      "color_name": "栗紫",
+      "color_pinyin": "LIZI",
+      "color_hex_value": "#5a191b",
+      "color_rgb_value": "90,25,27"
+    },
+    {
+      "color_name": "葡萄酱紫",
+      "color_pinyin": "PUTAOJIANGZI",
+      "color_hex_value": "#5a1216",
+      "color_rgb_value": "90,18,22"
+    },
+    {
+      "color_name": "葡萄紫",
+      "color_pinyin": "PUTAOZI",
+      "color_hex_value": "#4c1f24",
+      "color_rgb_value": "76,31,36"
+    }
+  ],
+  "tag_pink": [
+    {
+      "color_name": "落英淡粉",
+      "color_pinyin": "LUOYINGDANFEN",
+      "color_hex_value": "#f9e8d0",
+      "color_rgb_value": "249,232,208"
+    },
+    {
+      "color_name": "瓜瓤粉",
+      "color_pinyin": "GUARANGFEN",
+      "color_hex_value": "#f9cb8b",
+      "color_rgb_value": "249,203,139"
+    },
+    {
+      "color_name": "玫瑰粉",
+      "color_pinyin": "MEIGUIFEN",
+      "color_hex_value": "#f8b37f",
+      "color_rgb_value": "248,179,127"
+    },
+    {
+      "color_name": "藕荷",
+      "color_pinyin": "OUHE",
+      "color_hex_value": "#edc3ae",
+      "color_rgb_value": "237,195,174"
+    },
+    {
+      "color_name": "淡米粉",
+      "color_pinyin": "DANMIFEN",
+      "color_hex_value": "#fbeee2",
+      "color_rgb_value": "251,238,226"
+    }
+  ],
+  "tag_white": [
+    {
+      "color_name": "乳白",
+      "color_pinyin": "RUBAI",
+      "color_hex_value": "#f9f4dc",
+      "color_rgb_value": "249,244,220"
+    },
+    {
+      "color_name": "菊蕾白",
+      "color_pinyin": "JULEIBAI",
+      "color_hex_value": "#e9ddb6",
+      "color_rgb_value": "233,221,182"
+    },
+    {
+      "color_name": "蚌肉白",
+      "color_pinyin": "BANGROUBAI",
+      "color_hex_value": "#f9f1db",
+      "color_rgb_value": "249,241,219"
+    },
+    {
+      "color_name": "荔肉白",
+      "color_pinyin": "LIROUBAI",
+      "color_hex_value": "#f2e6ce",
+      "color_rgb_value": "242,230,206"
+    },
+    {
+      "color_name": "莲子白",
+      "color_pinyin": "LIANZIBAI",
+      "color_hex_value": "#e5d3aa",
+      "color_rgb_value": "229,211,170"
+    }
+  ],
+  "tag_gray": [
+    {
+      "color_name": "月灰",
+      "color_pinyin": "YUEHUI",
+      "color_hex_value": "#b7ae8f",
+      "color_rgb_value": "183,174,143"
+    },
+    {
+      "color_name": "燕羽灰",
+      "color_pinyin": "YANYUHUI",
+      "color_hex_value": "#685e48",
+      "color_rgb_value": "104,94,72"
+    },
+    {
+      "color_name": "蟹壳灰",
+      "color_pinyin": "XIEKEHUI",
+      "color_hex_value": "#695e45",
+      "color_rgb_value": "105,94,69"
+    },
+    {
+      "color_name": "银鼠灰",
+      "color_pinyin": "YINSHUHUI",
+      "color_hex_value": "#b5aa90",
+      "color_rgb_value": "181,170,144"
+    },
+    {
+      "color_name": "尘灰",
+      "color_pinyin": "CHENHUI",
+      "color_hex_value": "#b6a476",
+      "color_rgb_value": "182,164,118"
+    }
+  ],
+  "tag_brown": [
+    {
+      "color_name": "浅驼色",
+      "color_pinyin": "QIANTUOSE",
+      "color_hex_value": "#e2c17c",
+      "color_rgb_value": "226,193,124"
+    },
+    {
+      "color_name": "鹿角棕",
+      "color_pinyin": "LUJIAOZONG",
+      "color_hex_value": "#e3bd8d",
+      "color_rgb_value": "227,189,141"
+    },
+    {
+      "color_name": "凋叶棕",
+      "color_pinyin": "DIAOYEZONG",
+      "color_hex_value": "#e7a23f",
+      "color_rgb_value": "231,162,63"
+    },
+    {
+      "color_name": "桂皮淡棕",
+      "color_pinyin": "GUIPIDANZONG",
+      "color_hex_value": "#c09351",
+      "color_rgb_value": "192,147,81"
+    },
+    {
+      "color_name": "山鸡褐",
+      "color_pinyin": "SHANJIHE",
+      "color_hex_value": "#986524",
+      "color_rgb_value": "152,101,36"
+    }
+  ],
+  "tag_others": []
+}

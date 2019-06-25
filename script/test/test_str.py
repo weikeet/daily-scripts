@@ -13,31 +13,54 @@ def longest_common_prefix(strs):
     return res
 
 
-def calc_similar(s1, s2):
-    commonStr = longest_common_prefix([s1, s2])
+def calc_similar(key, dataKey):
+    commonStr = longest_common_prefix([key, dataKey])
     commonLen = len(commonStr)
-    if len(s1) <= len(s2):
-        minLen = len(s1)
-    else:
-        minLen = len(s2)
+    print('commonStr', commonStr, 'Len', commonLen)
 
-    print('commonStr:', commonStr)
-    print('commonLen:', str(commonLen), 'minLen:', str(minLen))
-    print(str(commonLen / minLen))
-
-    if minLen <= 10 and minLen != commonLen:
+    if commonLen == 0:
         return False
 
+    if len(key) <= len(dataKey):
+        minLen = len(key)
+    else:
+        minLen = len(dataKey)
+
+    if minLen <= 10 and minLen == commonLen:
+        print('1 key:', key, 'dataKey:', dataKey, 'commonStr:', commonStr)
+        print('commonLen:', str(commonLen), 'minLen:', str(minLen), 'rate:', str(commonLen / minLen))
+        return True
+
     if minLen <= 20 and commonLen / minLen >= 0.95:
+        print('2 key:', key, 'dataKey:', dataKey, 'commonStr:', commonStr)
+        print('commonLen:', str(commonLen), 'minLen:', str(minLen), 'rate:', str(commonLen / minLen))
         return True
 
     if minLen <= 30 and commonLen / minLen >= 0.9:
+        print('3 key:', key, 'dataKey:', dataKey, 'commonStr:', commonStr)
+        print('commonLen:', str(commonLen), 'minLen:', str(minLen), 'rate:', str(commonLen / minLen))
         return True
 
-    if minLen <= 30 and commonLen / minLen >= 0.85:
+    if minLen <= 40 and commonLen / minLen >= 0.85:
+        print('4 key:', key, 'dataKey:', dataKey, 'commonStr:', commonStr)
+        print('commonLen:', str(commonLen), 'minLen:', str(minLen), 'rate:', str(commonLen / minLen))
         return True
+
+    if minLen > 40 and commonLen / minLen >= 0.80:
+        print('x key:', key, 'dataKey:', dataKey, 'commonStr:', commonStr)
+        print('commonLen:', str(commonLen), 'minLen:', str(minLen), 'rate:', str(commonLen / minLen))
+        return True
+
     return False
 
 
 if __name__ == '__main__':
-    print(calc_similar("dacvvdxddsfxcsvsv", "dacvvdxddsfxcvvdscsdd"))
+    key1 = "位置：com.optimizer.test.junkmanager.SessionReceiverBroadcast of Intent { act=hs.app.session.SESSION_START flg=0x10 pkg=com.mobile.security.antivirus.applock.wifi cmp=com.mobile.security.antivirus.applock.wifi/com.optimizer.test.junkmanager.SessionReceiver launchParam=MultiScreenLaunchParams { mDisplayId=0 mBaseDisplayId=0 mFlags=0 } (has extras) }"
+    key2 = "位置：com.optimizer.test.junkmanager.SessionReceiverBroadcast of Intent { act=hs.app.session.SESSION_START flg=0x10 pkg=com.mobile.security.antivirus.applock.wifi cmp=com.mobile.security.antivirus.applock.wifi/com.optimizer.test.junkmanager.SessionReceiver (has extras) }, VisibleToUser"
+    key2 = "位置：com.optimizer.test.junkmanager.SessionReceiverBroadcast of Intent { act=hs.app.session.SESSION_START flg=0x10 pkg=com.mobile.security.antivirus.applock.wifi cmp=com.mobile.security.antivirus.applock.wifi/com.optimizer.test.junkmanager.SessionReceiver launchParam=MultiScreenLaunchParams { mDisplayId=0 mBaseDisplayId=0 mFlags=0 } (has extras) }"
+    # key1 = 'dsdsa'
+    # key2 = 'dsdsb'
+    print('key1 len', len(key1))
+    print('key2 len', len(key2))
+    print(calc_similar(key1, key2))
+

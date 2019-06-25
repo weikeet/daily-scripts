@@ -4,3 +4,7 @@ venv/
 venv3/
 *.csv
 *.log
+
+/script/mikutools/jp_colors.json
+/script/mikutools/ch_colors_category.json
+/script/mikutools/ch_colors.json
