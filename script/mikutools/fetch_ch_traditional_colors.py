@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
-
 import json
-
 import pinyin
 import requests
 from bs4 import BeautifulSoup
@@ -9,6 +7,10 @@ from bs4 import BeautifulSoup
 res = requests.get('https://miku.tools/china_colors')
 res.encoding = 'utf-8'
 html_text = res.text
+
+soup = BeautifulSoup(html_text, 'lxml')
+color_block_divs = soup.findAll('div', class_='color-block')
+print(len(color_block_divs))
 
 all_color_list = []
 all_color_category_data = {}
@@ -27,8 +29,6 @@ gray_color_list = []
 brown_color_list = []
 others_color_list = []
 
-soup = BeautifulSoup(html_text, 'lxml')
-color_block_divs = soup.findAll('div', class_='color-block')
 for color_block in color_block_divs:
     bg_div = color_block.find('div', class_='bg')
     bg_style = bg_div.get('style')
@@ -59,60 +59,60 @@ for color_block in color_block_divs:
     all_color_list.append(color_item)
 
     if color_name.endswith('红') or '银朱' in color_name or '榲桲舡' in color_name:
-        if len(red_color_list) > 4:
-            continue
+        # if len(red_color_list) > 4:
+        #     continue
         # 银朱:?, 榲桲舡:?
         red_color_list.append(color_item)
 
     elif color_name.endswith('橙') or '金驼' in color_name or '槟榔综' in color_name or '醉瓜肉' in color_name:
-        if len(orange_color_list) > 4:
-            continue
+        # if len(orange_color_list) > 4:
+        #     continue
         # 金驼:?, 槟榔综:?, 醉瓜肉:?
         orange_color_list.append(color_item)
 
     elif color_name.endswith('黄') or '肉色' in color_name:
-        if len(yellow_color_list) > 4:
-            continue
+        # if len(yellow_color_list) > 4:
+        #     continue
         # 肉色:?, 淡肉色:?
         yellow_color_list.append(color_item)
 
     elif color_name.endswith('绿'):
-        if len(green_color_list) > 4:
-            continue
+        # if len(green_color_list) > 4:
+        #     continue
         green_color_list.append(color_item)
 
     elif color_name.endswith('青'):
-        if len(cyan_color_list) > 4:
-            continue
+        # if len(cyan_color_list) > 4:
+        #     continue
         cyan_color_list.append(color_item)
 
     elif color_name.endswith('蓝'):
-        if len(blue_color_list) > 4:
-            continue
+        # if len(blue_color_list) > 4:
+        #     continue
         blue_color_list.append(color_item)
 
     elif color_name.endswith('紫') or '青莲' in color_name:
-        if len(purple_color_list) > 4:
-            continue
+        # if len(purple_color_list) > 4:
+        #     continue
         # 青莲: 淡蓝紫, https://baike.baidu.com/item/%E9%9D%92%E8%8E%B2%E8%89%B2/1123639
         purple_color_list.append(color_item)
 
     elif color_name.endswith('粉') or '藕荷' in color_name or '淡绯' in color_name:
-        if len(pink_color_list) > 4:
-            continue
+        # if len(pink_color_list) > 4:
+        #     continue
         # 藕荷:浅紫而略带粉红, https://baike.baidu.com/item/%E8%97%95%E8%8D%B7%E8%89%B2
         # 淡绯:?
         pink_color_list.append(color_item)
 
     elif color_name.endswith('白') or '汉白玉' in color_name or '米色' in color_name:
-        if len(white_color_list) > 4:
-            continue
+        # if len(white_color_list) > 4:
+        #     continue
         # 汉白玉:?, 米色:?
         white_color_list.append(color_item)
 
     elif color_name.endswith('灰') or '淡松烟' in color_name:
-        if len(gray_color_list) > 4:
-            continue
+        # if len(gray_color_list) > 4:
+        #     continue
         # 淡松烟:?
         gray_color_list.append(color_item)
 
@@ -120,8 +120,8 @@ for color_block in color_block_divs:
             or '赭石' in color_name or '驼色' in color_name \
             or '豆沙' in color_name or '咖啡' in color_name \
             or '淡赭' in color_name or '中灰驼' in color_name:
-        if len(brown_color_list) > 4:
-            continue
+        # if len(brown_color_list) > 4:
+        #     continue
         # 赭石:?, 驼色:?, 淡驼色:?, 豆沙:?, 淡豆沙:?, 咖啡:?, 淡咖啡:?, 淡赭:?, 中灰驼:?
         brown_color_list.append(color_item)
 
@@ -141,9 +141,9 @@ all_color_category_data['tag_gray'] = gray_color_list
 all_color_category_data['tag_brown'] = brown_color_list
 all_color_category_data['tag_others'] = others_color_list
 
-color_json_str = json.dumps(all_color_list, ensure_ascii=False)
-json_file = open('ch_colors.json', 'w')
-json_file.write(color_json_str)
+# color_json_str = json.dumps(all_color_list, ensure_ascii=False)
+# json_file = open('ch_colors.json', 'w')
+# json_file.write(color_json_str)
 
 color_category_json_str = json.dumps(all_color_category_data, ensure_ascii=False)
 category_json_file = open('ch_colors_category.json', 'w')

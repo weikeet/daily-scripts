@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
-
 import json
-
 import requests
 from bs4 import BeautifulSoup
 
@@ -29,6 +27,7 @@ for i in range(250):
     color_pinyin = color_desc_s[1]
     jp_color_desc[color_name] = color_pinyin
 
+
 res = requests.get('https://miku.tools/japan_colors')
 res.encoding = 'utf-8'
 html_text = res.text
@@ -38,6 +37,7 @@ color_block_divs = soup.findAll('div', class_='color-block')
 print(len(color_block_divs))
 
 all_color_list = []
+
 for color_block in color_block_divs:
     bg_div = color_block.find('div', class_='bg')
     bg_style = bg_div.get('style')
