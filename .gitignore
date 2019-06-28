@@ -2,7 +2,6 @@
 .idea
 venv/
 venv3/
-*.csv
 *.log
 
 /script/mikutools/jp_colors.json
