@@ -89,7 +89,7 @@ for item in reader:
     ranking = int(ranking_str)
 
     # print(lowest_score, ranking)
-    if 500 <= lowest_score <= 610 and 4000 <= ranking <= 14000:
+    if 500 <= lowest_score <= 600 and 4000 <= ranking <= 14000:
         if university_name in list_985 and university_name in list_first_class_a:
             sel_985_and_a.append(item)
         elif university_name in list_985 and university_name in list_first_class_b:
@@ -97,7 +97,7 @@ for item in reader:
         elif university_name in list_first_class_b:
             sel_b.append(item)
 
-    if lowest_score <= 610 and university_name in list_211_ex985 and item[3] == '普通类':
+    if lowest_score <= 600 and university_name in list_211_ex985 and item[3] == '普通类':
         sel_211.append(item)
 
 print('total:', total_count)
