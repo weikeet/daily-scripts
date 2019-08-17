@@ -55,9 +55,9 @@ def calc_similar(key, dataKey):
 
 
 if __name__ == '__main__':
-    key1 = "位置：com.optimizer.test.junkmanager.SessionReceiverBroadcast of Intent { act=hs.app.session.SESSION_START flg=0x10 pkg=com.mobile.security.antivirus.applock.wifi cmp=com.mobile.security.antivirus.applock.wifi/com.optimizer.test.junkmanager.SessionReceiver launchParam=MultiScreenLaunchParams { mDisplayId=0 mBaseDisplayId=0 mFlags=0 } (has extras) }"
-    key2 = "位置：com.optimizer.test.junkmanager.SessionReceiverBroadcast of Intent { act=hs.app.session.SESSION_START flg=0x10 pkg=com.mobile.security.antivirus.applock.wifi cmp=com.mobile.security.antivirus.applock.wifi/com.optimizer.test.junkmanager.SessionReceiver (has extras) }, VisibleToUser"
-    key2 = "位置：com.optimizer.test.junkmanager.SessionReceiverBroadcast of Intent { act=hs.app.session.SESSION_START flg=0x10 pkg=com.mobile.security.antivirus.applock.wifi cmp=com.mobile.security.antivirus.applock.wifi/com.optimizer.test.junkmanager.SessionReceiver launchParam=MultiScreenLaunchParams { mDisplayId=0 mBaseDisplayId=0 mFlags=0 } (has extras) }"
+    key1 = "位置：com.optimizer.strtest.junkmanager.SessionReceiverBroadcast of Intent { act=hs.app.session.SESSION_START flg=0x10 pkg=com.mobile.security.antivirus.applock.wifi cmp=com.mobile.security.antivirus.applock.wifi/com.optimizer.strtest.junkmanager.SessionReceiver launchParam=MultiScreenLaunchParams { mDisplayId=0 mBaseDisplayId=0 mFlags=0 } (has extras) }"
+    key2 = "位置：com.optimizer.strtest.junkmanager.SessionReceiverBroadcast of Intent { act=hs.app.session.SESSION_START flg=0x10 pkg=com.mobile.security.antivirus.applock.wifi cmp=com.mobile.security.antivirus.applock.wifi/com.optimizer.strtest.junkmanager.SessionReceiver (has extras) }, VisibleToUser"
+    key2 = "位置：com.optimizer.strtest.junkmanager.SessionReceiverBroadcast of Intent { act=hs.app.session.SESSION_START flg=0x10 pkg=com.mobile.security.antivirus.applock.wifi cmp=com.mobile.security.antivirus.applock.wifi/com.optimizer.strtest.junkmanager.SessionReceiver launchParam=MultiScreenLaunchParams { mDisplayId=0 mBaseDisplayId=0 mFlags=0 } (has extras) }"
     # key1 = 'dsdsa'
     # key2 = 'dsdsb'
     print('key1 len', len(key1))
