@@ -17,7 +17,8 @@ def replace_end_space(s):
 
 
 def convert_any_plist_to(source_file=''):
-    plist_converter_file = os.getcwd() + '/jacoder'
+    curr_py_file_path = os.path.abspath(__file__).replace('plist_diff_local.py', '')
+    plist_converter_file = curr_py_file_path + '/jacoder'
 
     strTime = time.strftime('%Y%m%d%H%M%S', time.localtime())
     target_file = source_file + '_' + strTime + '_decode.plist'

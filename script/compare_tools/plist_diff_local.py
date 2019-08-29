@@ -22,11 +22,12 @@ def compare_yaml_file(first_file, second_file):
     first_decode_file = first_file + '_' + strTime + '_decode.plist'
     second_decode_file = second_file + '_' + strTime + '_decode.plist'
 
-    plist_converter_file = os.getcwd() + '/jacoder'
+    curr_py_file_path = os.path.abspath(__file__).replace('plist_diff_local.py', '')
+    plist_converter_file = curr_py_file_path + '/jacoder'
     subprocess.run([plist_converter_file, '-d', first_file, first_decode_file], stdout=subprocess.PIPE)
     subprocess.run([plist_converter_file, '-d', second_file, second_decode_file], stdout=subprocess.PIPE)
 
-    compare_tools = os.getcwd() + "/compare"
+    compare_tools = curr_py_file_path + "/compare"
     subprocess.run([compare_tools, first_decode_file, second_decode_file], stdout=subprocess.PIPE)
 
 
