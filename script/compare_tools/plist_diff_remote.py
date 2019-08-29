@@ -3,6 +3,7 @@
 import difflib
 import os
 import subprocess
+import time
 import webbrowser
 
 
@@ -15,9 +16,11 @@ def replace_end_space(s):
         return s
 
 
-def convert_any_plist_to(source_file='', target_file=''):
+def convert_any_plist_to(source_file=''):
     plist_converter_file = os.getcwd() + '/jacoder'
-    target_file = target_file + '_decode.plist'
+
+    strTime = time.strftime('%Y%m%d%H%M%S', time.localtime())
+    target_file = source_file + '_' + strTime + '_decode.plist'
     subprocess.run([plist_converter_file, '-d', source_file, target_file], stdout=subprocess.PIPE)
     with open(target_file, 'r') as tf:
         result = tf.read()
@@ -28,11 +31,8 @@ def compare_yaml_file(first_file, second_file):
     first_file = replace_end_space(first_file)
     second_file = replace_end_space(second_file)
 
-    first_target_file = os.getcwd() + '/first_target_file.oa'
-    second_target_file = os.getcwd() + '/second_target_file.oa'
-
-    first_decode_result = convert_any_plist_to(source_file=first_file, target_file=first_target_file)
-    second_decode_result = convert_any_plist_to(source_file=second_file, target_file=second_target_file)
+    first_decode_result = convert_any_plist_to(source_file=first_file)
+    second_decode_result = convert_any_plist_to(source_file=second_file)
 
     html_str = compareInner(first_decode_result.splitlines(), second_decode_result.splitlines(), first_file,
                             second_file)

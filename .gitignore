@@ -7,4 +7,6 @@ venv3/
 /script/mikutools/*.json
 /script/google/*.csv
 /script/google/table/*.csv
+
+test_file_resource/*
 test_file_resource

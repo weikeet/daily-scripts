@@ -18,8 +18,9 @@ def compare_yaml_file(first_file, second_file):
     first_file = replace_end_space(first_file)
     second_file = replace_end_space(second_file)
 
-    first_decode_file = first_file + '_decode_' + str(time.time()) + '.plist'
-    second_decode_file = second_file + '_decode_' + str(time.time()) + '.plist'
+    strTime = time.strftime('%Y%m%d%H%M%S', time.localtime())
+    first_decode_file = first_file + '_' + strTime + '_decode.plist'
+    second_decode_file = second_file + '_' + strTime + '_decode.plist'
 
     plist_converter_file = os.getcwd() + '/jacoder'
     subprocess.run([plist_converter_file, '-d', first_file, first_decode_file], stdout=subprocess.PIPE)
