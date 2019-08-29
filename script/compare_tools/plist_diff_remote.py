@@ -1,17 +1,16 @@
 # -*- coding: utf-8 -*-
 
-import os
-import time
 import difflib
-import webbrowser
+import os
 import subprocess
+import webbrowser
 
 
-def replaceEndSpace(s):
+def replace_end_space(s):
     i = len(s) - 1
     if s[i] == ' ':
         new_s = s[0:i]
-        return replaceEndSpace(new_s)
+        return replace_end_space(new_s)
     else:
         return s
 
@@ -25,24 +24,9 @@ def convert_any_plist_to(source_file='', target_file=''):
     return result
 
 
-def compare_yaml_file1(first_file, second_file):
-    first_file = replaceEndSpace(first_file)
-    second_file = replaceEndSpace(second_file)
-
-    first_decode_file = first_file + '_decode_' + str(time.time()) + '.plist'
-    second_decode_file = second_file + '_decode_' + str(time.time()) + '.plist'
-
-    plist_converter_file = os.getcwd() + '/jacoder'
-    subprocess.run([plist_converter_file, '-d', first_file, first_decode_file], stdout=subprocess.PIPE)
-    subprocess.run([plist_converter_file, '-d', second_file, second_decode_file], stdout=subprocess.PIPE)
-
-    compare_tools = os.getcwd() + "/compare"
-    subprocess.run([compare_tools, first_decode_file, second_decode_file], stdout=subprocess.PIPE)
-
-
 def compare_yaml_file(first_file, second_file):
-    first_file = replaceEndSpace(first_file)
-    second_file = replaceEndSpace(second_file)
+    first_file = replace_end_space(first_file)
+    second_file = replace_end_space(second_file)
 
     first_target_file = os.getcwd() + '/first_target_file.oa'
     second_target_file = os.getcwd() + '/second_target_file.oa'
@@ -88,4 +72,4 @@ if __name__ == '__main__':
     file_a_path = input('Please input first file path: ')
     file_b_path = input('Please input second file path: ')
 
-    compare_yaml_file1(file_a_path, file_b_path)
+    compare_yaml_file(file_a_path, file_b_path)
