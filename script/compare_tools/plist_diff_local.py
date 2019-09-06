@@ -2,6 +2,7 @@
 
 import os
 import subprocess
+import sys
 import time
 
 
@@ -32,7 +33,10 @@ def compare_yaml_file(first_file, second_file):
 
 
 if __name__ == '__main__':
-    file_a_path = input('Please input first file path: ')
-    file_b_path = input('Please input second file path: ')
+    # file_a_path = input('Please input first file path: ')
+    # file_b_path = input('Please input second file path: ')
+
+    file_a_path = sys.argv[1]
+    file_b_path = sys.argv[2]
 
     compare_yaml_file(file_a_path, file_b_path)
