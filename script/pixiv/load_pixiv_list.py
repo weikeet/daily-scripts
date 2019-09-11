@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import json
 import os
+import time
 
 import requests
 
@@ -16,8 +17,8 @@ api_pixiv_member_illust = 'https://api.imjad.cn/pixiv/v1/?type=member_illust&id=
 api_pixiv_favorite = 'https://api.imjad.cn/pixiv/v1/?type=favorite&id='
 api_pixiv_rank = 'https://api.imjad.cn/pixiv/v1/?type=rank&id='
 
-pixiv_image_folder = '/Users/zhengwei.zhang/Pictures/TestPixiv/'
-# pixiv_image_folder = '/Volumes/Common/TestPixiv/'
+# pixiv_image_folder = '/Users/zhengwei.zhang/Pictures/TestPixiv/'
+pixiv_image_folder = '/Volumes/Common/PixivImages/'
 
 names = [name for name in os.listdir(pixiv_image_folder)
          if os.path.isfile(os.path.join(pixiv_image_folder, name))]
@@ -37,10 +38,8 @@ def load_illust_detail(file_name, id_str, end_name):
     user = response_json['user']
     user_id = user['id']
     user_name = user['name']
-    if end_name == '':
-        new_file_name = str(user_id) + '_' + id_str + '_' + user_name + '_' + title + '.jpg'
-    else:
-        new_file_name = str(user_id) + '_' + id_str + '_' + end_name + '_' + user_name + '_' + title + '.jpg'
+
+    new_file_name = str(user_id) + '_' + id_str + '_' + end_name + '_' + user_name + '_' + title + '.jpg'
 
     new_pixiv_image_folder = pixiv_image_folder + 'Rename/'
     try:
@@ -49,10 +48,7 @@ def load_illust_detail(file_name, id_str, end_name):
         try:
             title = title.replace('/', ' ')
             user_name = user_name.replace('/', ' ')
-            if end_name == '':
-                new_file_name = str(user_id) + '_' + id_str + '_' + user_name + '_' + title + '.jpg'
-            else:
-                new_file_name = str(user_id) + '_' + id_str + '_' + end_name + '_' + user_name + '_' + title + '.jpg'
+            new_file_name = str(user_id) + '_' + id_str + '_' + end_name + '_' + user_name + '_' + title + '.jpg'
             os.rename(pixiv_image_folder + file_name, new_pixiv_image_folder + new_file_name)
         except FileNotFoundError:
             print('RenameError:', 'OldName:', pixiv_image_folder + file_name, 'NewName:',
@@ -67,7 +63,7 @@ for file_name in names:
         # todo 判断Str size = 8 取ID
         if len(file_name_s) == 2 or len(file_name_s) == 3:
             image_id_str = file_name_s[1][:8]
-            end_name = ''
+            end_name = 'PX'
             if len(file_name_s) == 3:
                 # end_name = 'P' + file_name_s[2].split('.')[0]
                 end_name = 'P' + file_name_s[2].replace('.jpg', '')
@@ -91,5 +87,5 @@ for file_name in names:
             failed_image_list.append(failed_item)
 
     failed_image_json_str = json.dumps(failed_image_list, ensure_ascii=False)
-    json_file = open('failed_image.json', 'w')
+    json_file = open('failed_image_' + time.strftime('%Y%m%d%H', time.localtime()) + '.json', 'w')
     json_file.write(failed_image_json_str)
