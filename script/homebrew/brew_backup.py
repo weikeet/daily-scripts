@@ -121,7 +121,7 @@ def sort_by_name(elem):
 if __name__ == '__main__':
     is_select_update = input('is select update backup.json? yes: Y, no: N =-= ')
 
-    with open('brew_backup_2019091720.json') as backup_file:
+    with open('brew_backup_2019092613.json') as backup_file:
         brew_backup_json = json.load(backup_file)
 
         brew_tap_list = brew_backup_json['brew_tap']
