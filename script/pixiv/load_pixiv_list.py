@@ -85,12 +85,20 @@ def pre_handler_file_name(suffix):
             # end_name = 'P' + file_name_s[2].split('.')[0]
             end_name = 'P' + file_name_s[2].replace(suffix, '')
         image_id_str = get_image_file_id(file_name, suffix)
-        if image_id_str != ID_IS_NULL:
-            load_illust_detail(file_name, image_id_str, end_name, suffix)
-        else:
-            print('File id format error#', file_name)
-            failed_item = {'file_name': file_name, 'id_str': 'None', 'error_msg': 'File id format error'}
-            failed_image_list.append(failed_item)
+
+        new_file_name = '5229572' + '_' + image_id_str + '_' + end_name + '_NULL_' + 'mafuyu' + '_NoFound' + suffix
+
+        try:
+            os.rename(pixiv_image_folder + file_name, new_pixiv_image_folder + new_file_name)
+        except FileNotFoundError:
+            pass
+
+        # if image_id_str != ID_IS_NULL:
+        #     load_illust_detail(file_name, image_id_str, end_name, suffix)
+        # else:
+        #     print('File id format error#', file_name)
+        #     failed_item = {'file_name': file_name, 'id_str': 'None', 'error_msg': 'File id format error'}
+        #     failed_image_list.append(failed_item)
     else:
         print('Data size error#', file_name)
         failed_item = {'file_name': file_name, 'id_str': 'None', 'error_msg': 'Data size error'}
@@ -99,17 +107,18 @@ def pre_handler_file_name(suffix):
 
 if __name__ == '__main__':
     for file_name in names:
-        if file_name.endswith('.jpg'):
-            pre_handler_file_name('.jpg')
-        elif file_name.endswith('.png'):
-            pre_handler_file_name('.png')
-        elif file_name.endswith('.gif'):
-            pre_handler_file_name('.gif')
-        else:
-            if file_name != '.DS_Store':
-                print('Not is end with .jpg/png/gif#', file_name)
-                failed_item = {'file_name': file_name, 'id_str': 'None', 'error_msg': 'Not is end with .jpg/png/gif'}
-                failed_image_list.append(failed_item)
+        if file_name.startswith('まふゆ'):
+            if file_name.endswith('.jpg'):
+                pre_handler_file_name('.jpg')
+            elif file_name.endswith('.png'):
+                pre_handler_file_name('.png')
+            elif file_name.endswith('.gif'):
+                pre_handler_file_name('.gif')
+            else:
+                if file_name != '.DS_Store':
+                    print('Not is end with .jpg/png/gif#', file_name)
+                    failed_item = {'file_name': file_name, 'id_str': 'None', 'error_msg': 'Not is end with .jpg/png/gif'}
+                    failed_image_list.append(failed_item)
 
     failed_image_json_str = json.dumps(failed_image_list, ensure_ascii=False)
     json_file = open('failed_image_' + time.strftime('%Y%m%d%H', time.localtime()) + '.json', 'w')
