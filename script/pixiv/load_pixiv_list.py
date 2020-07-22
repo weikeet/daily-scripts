@@ -9,14 +9,14 @@ failed_image_list = []
 failure_image_list = []
 
 # illust Id
-api_pixiv_illust = 'https://api.imjad.cn/pixiv/v1/?type=illust&id='
+api_px_illust = 'https://api.imjad.cn/pixiv/v1/?type=illust&id='
 # member Id
-api_pixiv_member = 'https://api.imjad.cn/pixiv/v1/?type=member&id='
+api_px_member = 'https://api.imjad.cn/pixiv/v1/?type=member&id='
 # member Id
-api_pixiv_member_illust = 'https://api.imjad.cn/pixiv/v1/?type=member_illust&id='
+api_px_member_illust = 'https://api.imjad.cn/pixiv/v1/?type=member_illust&id='
 # user Id
-api_pixiv_favorite = 'https://api.imjad.cn/pixiv/v1/?type=favorite&id='
-api_pixiv_rank = 'https://api.imjad.cn/pixiv/v1/?type=rank&id='
+api_px_favorite = 'https://api.imjad.cn/pixiv/v1/?type=favorite&id='
+api_px_rank = 'https://api.imjad.cn/pixiv/v1/?type=rank&id='
 
 pixiv_image_folder = '/Volumes/Common/PixivImages/'
 new_pixiv_image_folder = '/Volumes/Common/PixivPicturesRename1/'
@@ -28,7 +28,7 @@ names = [name for name in os.listdir(pixiv_image_folder)
 
 
 def load_illust_detail(file_name, id_str, end_name, suffix):
-    res = requests.get(api_pixiv_illust + id_str)
+    res = requests.get(api_px_illust + id_str)
     res_json = json.loads(res.text)
     if res_json['status'] != 'success':
         print('ResponseStatus#', res_json['status'], 'FileName:', file_name)
@@ -109,12 +109,13 @@ if __name__ == '__main__':
                 failed_item = {'file_name': file_name, 'id_str': 'None', 'error_msg': 'Not is end with .jpg/png/gif'}
                 failed_image_list.append(failed_item)
 
+    time_str = time.strftime('%Y%m%d%H', time.localtime())
     if len(failed_image_list) > 0:
         failed_image_json_str = json.dumps(failed_image_list, ensure_ascii=False)
-        json_file = open('failed_image_' + time.strftime('%Y%m%d%H', time.localtime()) + '.json', 'w')
+        json_file = open('failed_image_' + time_str + '.json', 'w')
         json_file.write(failed_image_json_str)
 
     if len(failure_image_list) > 0:
         failure_image_json_str = json.dumps(failure_image_list, ensure_ascii=False)
-        failure_json_file = open('failure_image_' + time.strftime('%Y%m%d%H', time.localtime()) + '.json', 'w')
+        failure_json_file = open('failure_image_' + time_str + '.json', 'w')
         failure_json_file.write(failure_image_json_str)

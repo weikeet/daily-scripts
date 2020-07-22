@@ -3,8 +3,6 @@ import json
 import os
 import time
 
-# import requests
-
 failed_image_list = []
 failure_image_list = []
 
