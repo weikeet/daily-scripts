@@ -21,3 +21,5 @@ https://api.imjad.cn/pixiv/v1/?type=member&id={UserId}
 https://api.imjad.cn/pixiv/v1/?type=member&id=3753428
 ```
 
+文件操作参考
+https://python3-cookbook.readthedocs.io/zh_CN/latest/c05/p13_get_directory_listing.html
