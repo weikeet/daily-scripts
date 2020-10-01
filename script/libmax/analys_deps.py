@@ -2,7 +2,7 @@
 
 import os
 
-lib_max_root_path = "/Users/weicools/Projects/Enerjoy/TempSpace/app_maxcn_android/libs/ihs/libMax"
+lib_max_root_path = "/Users/weicools/Projects/Enerjoy/app_maxcn_android/libs/ihs/libMax/"
 package_path = "/com/optimizer/test/module/"
 
 all_module_name_list = []
@@ -14,7 +14,7 @@ re_mod = {}
 def file_name_walk(module_name):
     white_module_list = [module_name, 'adwrapper', 'common', 'donepage', 'externalcontrol', 'fonts', 'glidex',
                          'packagemanager', 'permission', 'setting', 'umpush', 'userpresent']
-    file_dir = lib_max_root_path + '/' + module_name + '/java' + package_path + module_name
+    file_dir = lib_max_root_path + module_name + '/java' + package_path + module_name
     for root, dirs, files in os.walk(file_dir):
         # print("root", root)  # 当前目录路径
         # print("dirs", dirs)  # 当前路径下所有子目录
@@ -35,8 +35,7 @@ def file_name_walk(module_name):
                             if des:
                                 re_mod[module_name] = ''
                                 print(java_file_path.replace(
-                                    '/Users/weicools/Projects/Enerjoy/TempSpace/app_maxcn_android/libs/ihs/libMax/'
-                                    + module_name + '/java/', ''))
+                                    lib_max_root_path + module_name + '/java/', ''))
                                 des = False
                             print(line.replace('\n', ''))
             if not des:
