@@ -51,15 +51,16 @@ if len(sys.argv) == 3:
     if os.path.exists(delete_path):
         shutil.rmtree(delete_path)
 
-    if not os.path.exists(target_path):
+    if os.path.exists(target_path):
+        print(target_path, "exists")
+    else:
         os.makedirs(target_path)
-
-    if os.path.exists(source_path):
-        # root 所指的是当前正在遍历的这个文件夹的本身的地址
-        # dirs 是一个 list，内容是该文件夹中所有的目录的名字(不包括子目录)
-        # files 同样是 list, 内容是该文件夹中所有的文件(不包括子目录)
-        for root, dirs, files in os.walk(source_path):
-            for fff in files:
-                src_file = os.path.join(root, fff)
-                shutil.copy(src_file, target_path)
-                print(src_file)
+        if os.path.exists(source_path):
+            # root 所指的是当前正在遍历的这个文件夹的本身的地址
+            # dirs 是一个 list，内容是该文件夹中所有的目录的名字(不包括子目录)
+            # files 同样是 list, 内容是该文件夹中所有的文件(不包括子目录)
+            for root, dirs, files in os.walk(source_path):
+                for fff in files:
+                    src_file = os.path.join(root, fff)
+                    shutil.copy(src_file, target_path)
+                    print(src_file)

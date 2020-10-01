@@ -3,6 +3,7 @@
 venv/
 venv1/
 venv3/
+/venv27/
 *.log
 
 /script/mikutools/*.json
