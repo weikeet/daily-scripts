@@ -31,7 +31,7 @@ def file_name_walk(module_name):
                             exist_dep_module[module_name] = {}
                         if class_na not in exist_dep_module[module_name]:
                             exist_dep_module[module_name][class_na] = []
-                        exist_dep_module[module_name][class_na].append(line.replace('\n', ''))
+                        exist_dep_module[module_name][class_na].append(line.replace('\n', '').replace('import ', ''))
 
 
 def get_all_module_name_list(file_dir):

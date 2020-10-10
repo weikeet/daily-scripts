@@ -12,3 +12,4 @@ venv3/
 
 test_file_resource/*
 test_file_resource
+/script/libmax/exist_dep_module.json
