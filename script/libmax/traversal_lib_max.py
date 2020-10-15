@@ -18,6 +18,7 @@ project_dict = {
 }
 
 lib_root_path = '/Users/weicools/Projects/Enerjoy/{name}/libs/ihs/libMax/'
+not_module_list = ['.idea', 'archive', 'iatools', 'ihandyproguard', 'thirdparty']
 
 all_module_name_list = []
 
@@ -35,8 +36,11 @@ for name, flavor in project_dict.items():
     tm_path = lib_root_path.format(name=name)
     traversal_lib_max(tm_path)
 
-if ".idea" in all_module_name_list:
-    all_module_name_list.remove(".idea")
+for not_module in not_module_list:
+    if not_module in all_module_name_list:
+        all_module_name_list.remove(not_module)
+
+all_module_name_list.sort()
 
 all_module_name_list_js = json.dumps(all_module_name_list, ensure_ascii=False)
 json_file = open('traversal_lib_max.json', 'w')
