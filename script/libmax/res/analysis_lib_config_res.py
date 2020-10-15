@@ -30,6 +30,11 @@ for name, res_list in config_res_json.items():
         if module_res not in app_module_res[name]:
             app_module_res[name][config_key].append(module_res)
 
+# 排序 all
+all_module_res.sort()
+print(all_module_res)
+
+# 筛选指定项目未配置的 module
 for module_res in all_module_res:
     for name, res_map in app_module_res.items():
         if module_res not in res_map[config_key]:
@@ -37,7 +42,12 @@ for module_res in all_module_res:
                 res_map[no_config_key] = []
             res_map[no_config_key].append(module_res)
 
-print(all_module_res)
+# 排序 app
+for name, res_map in app_module_res.items():
+    if config_key in res_map:
+        res_map[config_key].sort()
+    if no_config_key in res_map:
+        res_map[no_config_key].sort()
 print(app_module_res)
 
 all_module_res_js = json.dumps(all_module_res, ensure_ascii=False)
