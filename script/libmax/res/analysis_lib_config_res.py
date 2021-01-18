@@ -9,7 +9,6 @@ op_name = 'app_maxcn_android'
 pp_name = 'app_maxsecuritycn_android'
 sp_name = 'app_maxcleanercn_android'
 fc_name = 'app_fastclearcn_android'
-wk_name = 'app_walkcn_android'
 
 config_key = 'config'
 no_config_key = 'no_config'

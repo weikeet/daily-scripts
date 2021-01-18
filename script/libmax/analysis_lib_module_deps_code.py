@@ -8,7 +8,8 @@ package_path = "/com/optimizer/test/module/"
 
 exist_dep_module = {}
 
-all_module_name_list = []
+with open('traversal_lib_max.json', 'r') as fb:
+    traversal_lib_max_list = json.load(fb)
 
 white_module_list = ['adwrapper', 'common', 'donepage', 'externalcontrol', 'fonts', 'glidex',
                      'packagemanager', 'permission', 'setting', 'umpush', 'userpresent']
@@ -34,21 +35,13 @@ def file_name_walk(module_name):
                         exist_dep_module[module_name][class_na].append(line.replace('\n', '').replace('import ', ''))
 
 
-def get_all_module_name_list(file_dir):
-    for m_files in os.listdir(file_dir):
-        m_files_path = os.path.join(file_dir, m_files)
-        if os.path.isdir(m_files_path):
-            all_module_name_list.append(m_files)
-
-
 def fetch_import_class():
-    for module_name in all_module_name_list:
+    for module_name in traversal_lib_max_list:
         file_name_walk(module_name)
     exist_dep_module_js = json.dumps(exist_dep_module, ensure_ascii=False)
     json_file = open('exist_dep_module.json', 'w')
     json_file.write(exist_dep_module_js)
-    print('all_module_name_list', len(all_module_name_list), 're_mod', len(exist_dep_module))
+    print('all_module_name_list', len(traversal_lib_max_list), 're_mod', len(exist_dep_module))
 
 
-get_all_module_name_list(lib_max_root_path)
 fetch_import_class()

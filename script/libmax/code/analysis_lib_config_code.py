@@ -9,14 +9,12 @@ op_name = 'app_maxcn_android'
 pp_name = 'app_maxsecuritycn_android'
 sp_name = 'app_maxcleanercn_android'
 fc_name = 'app_fastclearcn_android'
-wk_name = 'app_walkcn_android'
 
 project_dict = {
     op_name: "oneAppMaxCN",
     pp_name: "oneAppMaxSecurityProCN",
     sp_name: "oneAppMaxCleanerCN",
-    fc_name: "fastClear",
-    wk_name: "walkK"
+    fc_name: "fastClear"
 }
 
 lib_config_path = '/Users/weicools/Projects/Enerjoy/{name}/app/src/{flavor}/libmaxconfig.json'

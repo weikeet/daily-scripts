@@ -1,0 +1,20 @@
+{
+  "moduleA": {
+    "drawable": [
+    ],
+    "layout": [
+    ],
+    "values": {
+      "strings": [
+      ],
+      "colors": [
+      ],
+      "dimens": [
+      ],
+      "attrs": [
+      ],
+      "styles": [
+      ]
+    }
+  }
+}
