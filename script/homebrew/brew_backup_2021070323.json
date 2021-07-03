@@ -1,0 +1,1525 @@
+{
+  "brew_tap_list": [
+    "adoptopenjdk/openjdk",
+    "dart-lang/dart",
+    "denji/nginx",
+    "ellie/atuin",
+    "flxo/tap",
+    "homebrew/cask",
+    "homebrew/cask-fonts",
+    "homebrew/cask-versions",
+    "homebrew/core",
+    "imxieyi/waifu2x",
+    "lukakerr/things"
+  ],
+  "brew_cask_list": [
+    {
+      "name": "010-editor",
+      "desc": "",
+      "tag": "",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "adobe-creative-cloud",
+      "desc": "",
+      "tag": "",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "adoptopenjdk",
+      "desc": "",
+      "tag": "",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "adoptopenjdk11",
+      "desc": "",
+      "tag": "",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "adoptopenjdk8",
+      "desc": "",
+      "tag": "",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "aerial",
+      "desc": "",
+      "tag": "",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "aliwangwang",
+      "desc": "",
+      "tag": "",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "android-ndk",
+      "desc": "android dev ide",
+      "tag": "android, env",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "android-platform-tools",
+      "desc": "android dev ide",
+      "tag": "android, env",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "android-sdk",
+      "desc": "android dev ide",
+      "tag": "android, env",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "android-studio",
+      "desc": "android dev ide",
+      "tag": "android, ide",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "appcode",
+      "desc": "JetbrainsKit for c/c++",
+      "tag": "jetbrains, ide",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "aria2gui",
+      "desc": "",
+      "tag": "",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "atom",
+      "desc": "atom text/code editor",
+      "tag": "text, ide",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "background-music",
+      "desc": "voice control",
+      "tag": "audio",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "baidunetdisk",
+      "desc": "百度网盘",
+      "tag": "downloader",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "beyond-compare",
+      "desc": "file or folder compare",
+      "tag": "diff",
+      "url": "",
+      "plaid": true,
+      "crack": "不断删除/Library/Application Support/Beyond Compare/registry.dat"
+    },
+    {
+      "name": "charles",
+      "desc": "Capture tool",
+      "tag": "network",
+      "url": "",
+      "plaid": true,
+      "crack": ""
+    },
+    {
+      "name": "cheatsheet",
+      "desc": "see application hot key",
+      "tag": "",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "chromedriver",
+      "desc": "python scrip",
+      "tag": "env",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "cinebench",
+      "desc": "",
+      "tag": "",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "clashx",
+      "desc": "",
+      "tag": "",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "clion",
+      "desc": "c/c++ ide",
+      "tag": "jetbrains, ide",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "clover-configurator",
+      "desc": "Clover配置",
+      "tag": "hackintosh",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "dash",
+      "desc": "look at document",
+      "tag": "document",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "datagrip",
+      "desc": "jetbrains database ide",
+      "tag": "database, ide",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "db-browser-for-sqlite",
+      "desc": "open source database ide",
+      "tag": "database, ide",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "dingtalk",
+      "desc": "",
+      "tag": "",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "docker",
+      "desc": "",
+      "tag": "",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "eul",
+      "desc": "",
+      "tag": "",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "evernote",
+      "desc": "text note",
+      "tag": "note",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "firefox",
+      "desc": "browser",
+      "tag": "browser",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "font-cascadia",
+      "desc": "",
+      "tag": "",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "font-fira-code",
+      "desc": "Code Font",
+      "tag": "font",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "font-roboto",
+      "desc": "",
+      "tag": "",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "font-source-code-pro",
+      "desc": "code font",
+      "tag": "font",
+      "url": "https://github.com/adobe-fonts/source-code-pro",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "font-source-code-pro-for-powerline",
+      "desc": "code font",
+      "tag": "font",
+      "url": "https://github.com/adobe-fonts/source-code-pro",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "gifcapture",
+      "desc": "gif recorder",
+      "tag": "gif",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "gimp",
+      "desc": "graphic image process",
+      "tag": "graphic",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "github",
+      "desc": "github desktop client",
+      "tag": "github",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "goland",
+      "desc": "jetbrains go ide",
+      "tag": "ide",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "google-chrome",
+      "desc": "",
+      "tag": "browser",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "hiddenbar",
+      "desc": "",
+      "tag": "",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "hyper",
+      "desc": "",
+      "tag": "",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "ieasemusic",
+      "desc": "",
+      "tag": "Player",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "iina",
+      "desc": "",
+      "tag": "Player",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "intellij-idea",
+      "desc": "jetbrains java ide",
+      "tag": "ide",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "iterm2",
+      "desc": "",
+      "tag": "terminal",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "jad",
+      "desc": "",
+      "tag": "android, decompile",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "jclasslib-bytecode-viewer",
+      "desc": "",
+      "tag": "",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "kext-utility",
+      "desc": "驱动安装修复",
+      "tag": "hackintosh",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "keycastr",
+      "desc": "按键记录",
+      "tag": "key",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "kugoumusic",
+      "desc": "",
+      "tag": "music",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "launchrocket",
+      "desc": "管理Homebrew安装软件服务",
+      "tag": "homebrew",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "maciasl",
+      "desc": "DSDT/SSDT编辑",
+      "tag": "hackintosh",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "macsvg",
+      "desc": "svg editor",
+      "tag": "graphic, svg",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "mathpix-snipping-tool",
+      "desc": "",
+      "tag": "math",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "microsoft-openjdk",
+      "desc": "",
+      "tag": "",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "microsoft-openjdk11",
+      "desc": "",
+      "tag": "",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "moefe-google-translate",
+      "desc": "",
+      "tag": "translate",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "mono-mdk",
+      "desc": "",
+      "tag": "",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "motrix",
+      "desc": "",
+      "tag": "downloader",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "mysql-shell",
+      "desc": "",
+      "tag": "",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "neteasemusic",
+      "desc": "网易云音乐",
+      "tag": "music",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "obs",
+      "desc": "直播录像",
+      "tag": "recoder",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "onedrive",
+      "desc": "文件同步",
+      "tag": "sync",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "openinterminal",
+      "desc": "",
+      "tag": "terminal",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "optimage",
+      "desc": "image optimize",
+      "tag": "image",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "phpstorm",
+      "desc": "jetbrains php ide",
+      "tag": "ide",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "picgo",
+      "desc": "pictures upload",
+      "tag": "upload",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "pine",
+      "desc": "markdown editor",
+      "tag": "markdown",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "postman",
+      "desc": "API请求响应测试",
+      "tag": "network",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "pycharm",
+      "desc": "jetbrains python ide",
+      "tag": "ide",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "qiyimedia",
+      "desc": "",
+      "tag": "video",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "qlcolorcode",
+      "desc": "color code quicklook",
+      "tag": "quicklook",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "qlmarkdown",
+      "desc": "markdown quicklook",
+      "tag": "quicklook",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "qlstephen",
+      "desc": "A QuickLook plugin that lets you view plain text files without a file extension",
+      "tag": "quicklook",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "qq",
+      "desc": "",
+      "tag": "chat",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "qqmusic",
+      "desc": "",
+      "tag": "music",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "quicklook-csv",
+      "desc": "csv quicklook",
+      "tag": "quicklook",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "quicklook-json",
+      "desc": "json quicklook",
+      "tag": "quicklook",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "quicklookapk",
+      "desc": "apk quicklook",
+      "tag": "quicklook",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "shadowsocksx-ng",
+      "desc": "Shadowsocks",
+      "tag": "network, proxy",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "shadowsocksx-ng-r",
+      "desc": "Shadowsocks",
+      "tag": "network, proxy",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "slack",
+      "desc": "工作沟通",
+      "tag": "chat",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "sourcetree",
+      "desc": "version control client",
+      "tag": "git, version",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "staruml",
+      "desc": "",
+      "tag": "",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "steam",
+      "desc": "game client",
+      "tag": "game",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "sublime-text",
+      "desc": "",
+      "tag": "text, editor",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "switchhosts",
+      "desc": "",
+      "tag": "",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "telegram",
+      "desc": "",
+      "tag": "telegram, chat",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "telegram-desktop",
+      "desc": "",
+      "tag": "telegram, chat",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "the-unarchiver",
+      "desc": "unarchiver tool",
+      "tag": "unarchiver",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "tinymediamanager",
+      "desc": "",
+      "tag": "",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "typora",
+      "desc": "markdown text editor",
+      "tag": "markdown, editor",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "upic",
+      "desc": "image upload",
+      "tag": "image, upload",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "v2rayu",
+      "desc": "network proxy",
+      "tag": "proxy",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "visual-studio-code",
+      "desc": "microsoft text/code ide",
+      "tag": "ide",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "wallpaper-wizard",
+      "desc": "wallpaper client",
+      "tag": "design, wallpaper",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "webpquicklook",
+      "desc": "webp image quicklook",
+      "tag": "quicklook",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "webstorm",
+      "desc": "web develop ide",
+      "tag": "jetbrains, ide",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "webtorrent",
+      "desc": "torrent download",
+      "tag": "downloader",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "wechat",
+      "desc": "chat",
+      "tag": "chat",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "wpsoffice",
+      "desc": "",
+      "tag": "",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "youku",
+      "desc": "",
+      "tag": "",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    },
+    {
+      "name": "zeplin",
+      "desc": "mobile design label",
+      "tag": "design",
+      "url": "",
+      "plaid": false,
+      "crack": ""
+    }
+  ],
+  "brew_formula_list": [
+    {
+      "name": "apktool",
+      "desc": "decompile tool",
+      "tag": "android, decompile",
+      "url": ""
+    },
+    {
+      "name": "autojump",
+      "desc": "zsh auto jump",
+      "tag": "zsh",
+      "url": ""
+    },
+    {
+      "name": "autojump",
+      "desc": "",
+      "tag": "",
+      "url": ""
+    },
+    {
+      "name": "axel",
+      "desc": "axel multi thread download",
+      "tag": "downloader",
+      "url": ""
+    },
+    {
+      "name": "cmake",
+      "desc": "",
+      "tag": "compiler",
+      "url": ""
+    },
+    {
+      "name": "cmake",
+      "desc": "",
+      "tag": "",
+      "url": ""
+    },
+    {
+      "name": "curl",
+      "desc": "system download tool",
+      "tag": "downloader",
+      "url": ""
+    },
+    {
+      "name": "dart",
+      "desc": "dart language support",
+      "tag": "web, language, dart",
+      "url": ""
+    },
+    {
+      "name": "dex2jar",
+      "desc": "decompile tool",
+      "tag": "android, decompile",
+      "url": ""
+    },
+    {
+      "name": "dex2jar",
+      "desc": "",
+      "tag": "",
+      "url": ""
+    },
+    {
+      "name": "docker",
+      "desc": "",
+      "tag": "docker",
+      "url": ""
+    },
+    {
+      "name": "docker-clean",
+      "desc": "",
+      "tag": "",
+      "url": ""
+    },
+    {
+      "name": "docker-compose",
+      "desc": "",
+      "tag": "",
+      "url": ""
+    },
+    {
+      "name": "ffmpeg",
+      "desc": "transcoding tool, process audio and video",
+      "tag": "audio, video",
+      "url": ""
+    },
+    {
+      "name": "gifcap",
+      "desc": "A shell script to record GIFs from your Android devices",
+      "tag": "android, gif, graphic",
+      "url": ""
+    },
+    {
+      "name": "gifski",
+      "desc": "Highest-quality GIF encoder based on pngquant",
+      "tag": "gif, graphic",
+      "url": ""
+    },
+    {
+      "name": "gifski",
+      "desc": "",
+      "tag": "",
+      "url": ""
+    },
+    {
+      "name": "git",
+      "desc": "version control",
+      "tag": "git",
+      "url": ""
+    },
+    {
+      "name": "git-flow",
+      "desc": "version control",
+      "tag": "git",
+      "url": ""
+    },
+    {
+      "name": "github-markdown-toc",
+      "desc": "",
+      "tag": "markdown",
+      "url": ""
+    },
+    {
+      "name": "github-markdown-toc",
+      "desc": "",
+      "tag": "",
+      "url": ""
+    },
+    {
+      "name": "gitlab-runner",
+      "desc": "",
+      "tag": "git",
+      "url": ""
+    },
+    {
+      "name": "gitlab-runner",
+      "desc": "",
+      "tag": "",
+      "url": ""
+    },
+    {
+      "name": "go",
+      "desc": "",
+      "tag": "language",
+      "url": ""
+    },
+    {
+      "name": "go",
+      "desc": "",
+      "tag": "",
+      "url": ""
+    },
+    {
+      "name": "highlight",
+      "desc": "text processing utilities",
+      "tag": "tool",
+      "url": ""
+    },
+    {
+      "name": "ipython",
+      "desc": "python debug tool",
+      "tag": "python",
+      "url": ""
+    },
+    {
+      "name": "ipython",
+      "desc": "",
+      "tag": "",
+      "url": ""
+    },
+    {
+      "name": "jadx",
+      "desc": "decompile tool",
+      "tag": "android, decompile",
+      "url": ""
+    },
+    {
+      "name": "jadx",
+      "desc": "",
+      "tag": "",
+      "url": ""
+    },
+    {
+      "name": "jenkins",
+      "desc": "project build tool",
+      "tag": "build",
+      "url": ""
+    },
+    {
+      "name": "jenkins",
+      "desc": "",
+      "tag": "",
+      "url": ""
+    },
+    {
+      "name": "kotlin",
+      "desc": "kotlin language support",
+      "tag": "language",
+      "url": ""
+    },
+    {
+      "name": "kotlin",
+      "desc": "",
+      "tag": "",
+      "url": ""
+    },
+    {
+      "name": "mingw-w64",
+      "desc": "c++ develop",
+      "tag": "compiler",
+      "url": ""
+    },
+    {
+      "name": "mingw-w64",
+      "desc": "",
+      "tag": "",
+      "url": ""
+    },
+    {
+      "name": "mysql",
+      "desc": "mysql@5.7",
+      "tag": "database",
+      "url": ""
+    },
+    {
+      "name": "mysql",
+      "desc": "",
+      "tag": "",
+      "url": ""
+    },
+    {
+      "name": "mysql-client",
+      "desc": "",
+      "tag": "database",
+      "url": ""
+    },
+    {
+      "name": "mysql-client",
+      "desc": "",
+      "tag": "",
+      "url": ""
+    },
+    {
+      "name": "nginx",
+      "desc": "network reverse proxy",
+      "tag": "network",
+      "url": ""
+    },
+    {
+      "name": "nginx",
+      "desc": "",
+      "tag": "",
+      "url": ""
+    },
+    {
+      "name": "node",
+      "desc": "node@10",
+      "tag": "web, node",
+      "url": ""
+    },
+    {
+      "name": "openjdk",
+      "desc": "",
+      "tag": "jdk",
+      "url": ""
+    },
+    {
+      "name": "openjdk@11",
+      "desc": "",
+      "tag": "jdk",
+      "url": ""
+    },
+    {
+      "name": "openjdk@8",
+      "desc": "",
+      "tag": "jdk",
+      "url": ""
+    },
+    {
+      "name": "openssl",
+      "desc": "OpenSSL is a robust, commercial-grade, and full-featured toolkit for the Transport Layer Security (TLS) and Secure Sockets Layer (SSL) protocols",
+      "tag": "network",
+      "url": ""
+    },
+    {
+      "name": "openssl",
+      "desc": "",
+      "tag": "",
+      "url": ""
+    },
+    {
+      "name": "openssl@1.1",
+      "desc": "OpenSSL is a robust, commercial-grade, and full-featured toolkit for the Transport Layer Security (TLS) and Secure Sockets Layer (SSL) protocols",
+      "tag": "network",
+      "url": ""
+    },
+    {
+      "name": "pandoc",
+      "desc": "",
+      "tag": "tool",
+      "url": ""
+    },
+    {
+      "name": "plantuml",
+      "desc": "",
+      "tag": "tool",
+      "url": ""
+    },
+    {
+      "name": "plantuml",
+      "desc": "",
+      "tag": "",
+      "url": ""
+    },
+    {
+      "name": "protobuf",
+      "desc": "",
+      "tag": "tool",
+      "url": ""
+    },
+    {
+      "name": "protobuf",
+      "desc": "",
+      "tag": "",
+      "url": ""
+    },
+    {
+      "name": "protobuf@3.7",
+      "desc": "",
+      "tag": "tool",
+      "url": ""
+    },
+    {
+      "name": "protobuf@3.7",
+      "desc": "",
+      "tag": "",
+      "url": ""
+    },
+    {
+      "name": "python@2",
+      "desc": "python 2.x",
+      "tag": "python",
+      "url": ""
+    },
+    {
+      "name": "python@2",
+      "desc": "",
+      "tag": "",
+      "url": ""
+    },
+    {
+      "name": "python@3.8",
+      "desc": "python 3.8",
+      "tag": "python",
+      "url": ""
+    },
+    {
+      "name": "python@3.9",
+      "desc": "python 3.9",
+      "tag": "python",
+      "url": ""
+    },
+    {
+      "name": "scrcpy",
+      "desc": "screening",
+      "tag": "tool",
+      "url": ""
+    },
+    {
+      "name": "shc",
+      "desc": "",
+      "tag": "compiler",
+      "url": ""
+    },
+    {
+      "name": "shc",
+      "desc": "",
+      "tag": "",
+      "url": ""
+    },
+    {
+      "name": "sqlite",
+      "desc": "database framework",
+      "tag": "database",
+      "url": ""
+    },
+    {
+      "name": "thefuck",
+      "desc": "",
+      "tag": "tool",
+      "url": ""
+    },
+    {
+      "name": "thefuck",
+      "desc": "",
+      "tag": "",
+      "url": ""
+    },
+    {
+      "name": "tmux",
+      "desc": "tmux是终端多路复用器",
+      "tag": "terminal",
+      "url": ""
+    },
+    {
+      "name": "tmux",
+      "desc": "",
+      "tag": "",
+      "url": ""
+    },
+    {
+      "name": "tree",
+      "desc": "print file tree",
+      "tag": "tool",
+      "url": ""
+    },
+    {
+      "name": "tree",
+      "desc": "",
+      "tag": "",
+      "url": ""
+    },
+    {
+      "name": "waifu2x",
+      "desc": "",
+      "tag": "tool",
+      "url": ""
+    },
+    {
+      "name": "waifu2x",
+      "desc": "",
+      "tag": "",
+      "url": ""
+    },
+    {
+      "name": "wget",
+      "desc": "system download tool",
+      "tag": "downloader",
+      "url": ""
+    },
+    {
+      "name": "wget",
+      "desc": "",
+      "tag": "",
+      "url": ""
+    },
+    {
+      "name": "youtube-dl",
+      "desc": "youtube video download tool",
+      "tag": "downloader",
+      "url": ""
+    },
+    {
+      "name": "zsh",
+      "desc": "zsh terminal shell",
+      "tag": "zsh",
+      "url": ""
+    },
+    {
+      "name": "zsh-autosuggestions",
+      "desc": "",
+      "tag": "zsh",
+      "url": ""
+    },
+    {
+      "name": "zsh-completions",
+      "desc": "zsh smart completions",
+      "tag": "zsh",
+      "url": ""
+    },
+    {
+      "name": "zsh-syntax-highlighting",
+      "desc": "zsh highlight",
+      "tag": "zsh",
+      "url": ""
+    }
+  ],
+  "brew_formula_unknown_list": [
+    "adns",
+    "aom",
+    "apr",
+    "apr-util",
+    "asciinema",
+    "atuin",
+    "autoconf",
+    "bdw-gc",
+    "brotli",
+    "brotli",
+    "c-ares",
+    "cairo",
+    "cairo",
+    "dav1d",
+    "flac",
+    "fontconfig",
+    "freetype",
+    "frei0r",
+    "frei0r",
+    "fribidi",
+    "gd",
+    "gdbm",
+    "gdbm",
+    "gdk-pixbuf",
+    "gettext",
+    "ghostscript",
+    "giflib",
+    "gifsicle",
+    "glib",
+    "gmp",
+    "gmp",
+    "gnupg",
+    "gnutls",
+    "gobject-introspection",
+    "gobject-introspection",
+    "graphite2",
+    "graphviz",
+    "gts",
+    "guile",
+    "guile",
+    "harfbuzz",
+    "htop",
+    "icu4c",
+    "isl",
+    "jansson",
+    "jasper",
+    "jbig2dec",
+    "jemalloc",
+    "jpeg",
+    "lame",
+    "leptonica",
+    "leptonica",
+    "libass",
+    "libassuan",
+    "libbluray",
+    "libev",
+    "libev",
+    "libevent",
+    "libffi",
+    "libffi",
+    "libgcrypt",
+    "libgpg-error",
+    "libidn",
+    "libidn2",
+    "libksba",
+    "libmetalink",
+    "libmpc",
+    "libmpc",
+    "libogg",
+    "libpng",
+    "libpng",
+    "libpthread-stubs",
+    "librsvg",
+    "libsamplerate",
+    "libsamplerate",
+    "libsndfile",
+    "libsodium",
+    "libsodium",
+    "libsoxr",
+    "libssh2",
+    "libssh2",
+    "libtasn1",
+    "libtiff",
+    "libtiff",
+    "libtool",
+    "libunistring",
+    "libunistring",
+    "libusb",
+    "libuv",
+    "libvidstab",
+    "libvidstab",
+    "libvorbis",
+    "libvpx",
+    "libvpx",
+    "libx11",
+    "libxau",
+    "libxau",
+    "libxcb",
+    "libxdmcp",
+    "libxdmcp",
+    "libxext",
+    "libxrender",
+    "libxrender",
+    "libyaml",
+    "little-cms2",
+    "lua",
+    "lz4",
+    "lzo",
+    "m4",
+    "m4",
+    "mpdecimal",
+    "mpfr",
+    "mpfr",
+    "nasm",
+    "ncurses",
+    "netpbm",
+    "nettle",
+    "nettle",
+    "nghttp2",
+    "node@12",
+    "npth",
+    "opencore-amr",
+    "openjpeg",
+    "openldap",
+    "openldap",
+    "opus",
+    "p11-kit",
+    "p11-kit",
+    "pango",
+    "pcre",
+    "pcre2",
+    "pcre2",
+    "perl",
+    "pinentry",
+    "pixman",
+    "pkg-config",
+    "pkg-config",
+    "proxychains-ng",
+    "qt",
+    "rav1e",
+    "readline",
+    "readline",
+    "rogcat",
+    "rtmpdump",
+    "rubberband",
+    "rubberband",
+    "scons",
+    "sdl2",
+    "shfmt",
+    "snappy",
+    "snappy",
+    "speex",
+    "sphinx-doc",
+    "sphinx-doc",
+    "srt",
+    "subversion",
+    "swig",
+    "tcl",
+    "tcl",
+    "tcl-tk",
+    "tcl-tk",
+    "tesseract",
+    "texinfo",
+    "theora",
+    "theora",
+    "trash",
+    "unbound",
+    "upx",
+    "utf8proc",
+    "webp",
+    "x264",
+    "x265",
+    "x265",
+    "xorgproto",
+    "xvid",
+    "xvid",
+    "xz",
+    "zeromq",
+    "zimg",
+    "zimg",
+    "zlib",
+    "zstd"
+  ]
+}
