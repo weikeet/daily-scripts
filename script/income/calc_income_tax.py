@@ -29,6 +29,32 @@ lists_real_accumulation_fund = []
 lists_real_income_accumulation_fund = []
 
 
+def clearList():
+    lists_special_deduction_income.clear()
+    lists_income_tax_payable.clear()
+    lists_tax.clear()
+    lists_real_income.clear()
+    lists_real_accumulation_fund.clear()
+    lists_real_income_accumulation_fund.clear()
+
+
+def get_percent(total):
+    if total <= 36000:
+        return 0.03
+    elif total <= 144000:
+        return 0.1
+    elif total <= 300000:
+        return 0.2
+    elif total <= 420000:
+        return 0.25
+    elif total <= 660000:
+        return 0.3
+    elif total <= 960000:
+        return 0.35
+    else:
+        return 0.45
+
+
 def calc_total(lists_x, month_x):
     lists_x.append(month_x)
     total_x = 0
@@ -66,7 +92,9 @@ def calc_income(base_income, base_pay, month):
     total_income_tax_payable = calc_total(lists_income_tax_payable, month_income_tax_payable)
 
     # 当月申报税额
-    month_tax = round(month_income_tax_payable * 0.1, 2)
+    # percent = 0.1
+    percent = get_percent(total_income_tax_payable)
+    month_tax = round(month_income_tax_payable * percent, 2)
     # 累计申报税额
     total_tax = calc_total(lists_tax, month_tax)
 
@@ -96,10 +124,13 @@ def calc_income(base_income, base_pay, month):
 
 # 基本薪资 缴纳基数
 # 01-12 薪资发放时间 02-01 次年
-def calc(base_income, base_pay_pref, mon, base_pay_post):
+def calc(base_income, total_pay, base_pay_pref, mon, base_pay_post):
+    clearList()
+    lists_income_tax_payable.append(total_pay)
+
     if mon == 0:
         print('存缴比例没有变化')
-        for i in range(2, 12 + 2):
+        for i in range(2, 9 + 2):
             calc_income(base_income, base_pay_pref, i)
         return
 
@@ -112,8 +143,26 @@ def calc(base_income, base_pay_pref, mon, base_pay_post):
     print("")
 
     print('存缴比例变后, 存缴比例=', base_pay_post)
-    for i in range(mon, 12 + 2):
+    for i in range(mon, 9 + 2):
         calc_income(base_income, base_pay_post, i)
 
 
-calc(29000, 18625, 7, 21250)
+calc(29000, 12806.37, 18625, 7, 21250)
+
+print()
+print("#########################################################################################")
+print("#########################################################################################")
+print("#########################################################################################")
+print("#########################################################################################")
+print()
+
+calc(29000, 12806.37, 18625, 7, 28221)
+
+print()
+print("#########################################################################################")
+print("#########################################################################################")
+print("#########################################################################################")
+print("#########################################################################################")
+print()
+
+calc(28000, 0, 28000, 0, 28000)
