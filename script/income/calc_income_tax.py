@@ -38,6 +38,18 @@ def clearList():
     lists_real_income_accumulation_fund.clear()
 
 
+def plus(a, b):
+    return round(a + b, 2)
+
+
+def subtract(a, b):
+    return round(a - b, 2)
+
+
+def multiply(a, b):
+    return round(a * b, 2)
+
+
 def get_percent(total):
     if total <= 36000:
         return 0.03
@@ -66,23 +78,24 @@ def calc_total(lists_x, month_x):
 
 def calc_income(base_income, base_pay, month):
     # 住房公积金
-    accumulation_fund_pv = round(base_pay * accumulation_fund_p, 2)
-    accumulation_fund_ev = round(base_pay * accumulation_fund_e, 2)
+    accumulation_fund_pv = multiply(base_pay, accumulation_fund_p)
+    accumulation_fund_ev = multiply(base_pay, accumulation_fund_e)
     # 养老保险
-    old_age_insurance_pv = round(base_pay * old_age_insurance_p, 2)
-    old_age_insurance_ev = round(base_pay * old_age_insurance_e, 2)
+    old_age_insurance_pv = multiply(base_pay, old_age_insurance_p)
+    old_age_insurance_ev = multiply(base_pay, old_age_insurance_e)
     # 医疗保险
-    media_insurance_pv = round(base_pay * media_insurance_p, 2)
-    media_insurance_ev = round(base_pay * media_insurance_e, 2)
+    media_insurance_pv = multiply(base_pay, media_insurance_p)
+    media_insurance_ev = multiply(base_pay, media_insurance_e)
     # 失业保险
-    unemployment_insurance_pv = round(base_pay * unemployment_insurance_p, 2)
-    unemployment_insurance_ev = round(base_pay * unemployment_insurance_e, 2)
+    unemployment_insurance_pv = multiply(base_pay, unemployment_insurance_p)
+    unemployment_insurance_ev = multiply(base_pay, unemployment_insurance_e)
     # 工伤保险
-    injury_insurance_pv = round(base_pay * injury_insurance_p, 2)
-    injury_insurance_ev = round(base_pay * injury_insurance_e, 2)
+    injury_insurance_pv = multiply(base_pay, injury_insurance_p)
+    injury_insurance_ev = multiply(base_pay, injury_insurance_e)
 
     # 当月专项扣除五险一金剩余
     month_special_deduction_income = base_income - accumulation_fund_pv - old_age_insurance_pv - media_insurance_pv - unemployment_insurance_pv - injury_insurance_pv
+    month_special_deduction_income = round(month_special_deduction_income, 2)
     # 累计专项扣除五险一金剩余
     total_special_deduction_income = calc_total(lists_special_deduction_income, month_special_deduction_income)
 
@@ -92,29 +105,31 @@ def calc_income(base_income, base_pay, month):
     total_income_tax_payable = calc_total(lists_income_tax_payable, month_income_tax_payable)
 
     # 当月申报税额
-    # percent = 0.1
-    percent = get_percent(total_income_tax_payable)
-    month_tax = round(month_income_tax_payable * percent, 2)
+    percent = 0.1
+    # percent = get_percent(total_income_tax_payable)
+    month_tax = multiply(month_income_tax_payable, percent)
     # 累计申报税额
     total_tax = calc_total(lists_tax, month_tax)
 
     # 当月实际收入
-    month_real_income = round(month_special_deduction_income - month_tax, 2)
+    month_real_income = subtract(month_special_deduction_income, month_tax)
     # 累计实际收入
     total_real_income = calc_total(lists_real_income, month_real_income)
 
     # 当月公积金收入
-    month_real_accumulation_fund = accumulation_fund_pv + accumulation_fund_ev
+    month_real_accumulation_fund = plus(accumulation_fund_pv, accumulation_fund_ev)
     # 累计公积金收入
     total_real_accumulation_fund = calc_total(lists_real_accumulation_fund, month_real_accumulation_fund)
 
     # 当月实际+公积金收入
-    month_real_income_accumulation_fund = month_real_income + month_real_accumulation_fund
+    month_real_income_accumulation_fund = plus(month_real_income, month_real_accumulation_fund)
     # 累计实际+公积金收入
     total_real_income_accumulation_fund = calc_total(lists_real_income_accumulation_fund, month_real_income_accumulation_fund)
 
     print('')
     print('month=', month, '---------------------------')
+    print('个人', '公积金=', accumulation_fund_pv, '养老=', old_age_insurance_pv, '医疗=', media_insurance_pv, '失业=', unemployment_insurance_pv)
+    print('公司', '公积金=', accumulation_fund_ev, '养老=', old_age_insurance_ev, '医疗=', media_insurance_ev, '失业=', unemployment_insurance_ev, '工伤=', injury_insurance_ev)
     print('当月专项扣除五险一金剩余=', month_special_deduction_income, '当月应交所得税额=', month_income_tax_payable, '当月申报税额=', month_tax)
     print('累计专项扣除五险一金剩余=', total_special_deduction_income, '累计应交所得税额=', total_income_tax_payable, '累计申报税额=', total_tax)
 
@@ -153,8 +168,10 @@ def calc(base_income, total_pay, base_pay_pref, mon, base_pay_post):
         calc_income(base_income, base_pay_post, i)
 
 
+# 2022.01 发放 2021.12 工资：累计税额=12806.37
+
 calc(29000, 12806.37, 18625, 7, 21250)
 
-calc(29000, 12806.37, 18625, 7, 28221)
+# calc(29000, 12806.37, 18625, 7, 28221)
 
-calc(28000, 0, 28000, 0, 28000)
+# calc(28000, 12806.37, 28000, 0, 28000)
