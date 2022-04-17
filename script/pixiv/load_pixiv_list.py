@@ -8,15 +8,14 @@ import requests
 failed_image_list = []
 failure_image_list = []
 
-# illust Id
-api_px_illust = 'https://api.imjad.cn/pixiv/v1/?type=illust&id='
-# member Id
-api_px_member = 'https://api.imjad.cn/pixiv/v1/?type=member&id='
-# member Id
-api_px_member_illust = 'https://api.imjad.cn/pixiv/v1/?type=member_illust&id='
-# user Id
+# illust Id 通过插画ID获取插画信息
+api_px_illust = 'https://api.kyomotoi.moe/api/pixiv/illust?id='
+# member Id 通过用户ID获取用户信息
+api_px_member = 'https://api.kyomotoi.moe/api/pixiv/member?id='
+# member Id 通过用户ID获取用户作品列表
+api_px_member_illust = 'https://api.kyomotoi.moe/api/pixiv/member_illust?id='
+# user Id 查看用户收藏
 api_px_favorite = 'https://api.imjad.cn/pixiv/v1/?type=favorite&id='
-api_px_rank = 'https://api.imjad.cn/pixiv/v1/?type=rank&id='
 
 pixiv_image_folder = '/Volumes/Common/PixivImages/'
 new_pixiv_image_folder = '/Volumes/Common/PixivPicturesRename1/'

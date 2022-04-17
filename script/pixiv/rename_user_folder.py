@@ -23,7 +23,6 @@ def load_user_info(user_id_v):
 
     response_status = res_text_json['status']
     if response_status != 'success':
-        print('load_user_info#', response_status, 'Id:', user_id_v)
         user_id_failed_list.append({"id": user_id_v, "reason": response_status})
         return
 
