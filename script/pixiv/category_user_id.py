@@ -3,63 +3,62 @@ import json
 import os
 import time
 
-failed_image_list = []
-
 pixiv_image_folder = '/Volumes/Common/PixivPictures/'
-new_pixiv_image_folder = '/Volumes/Common/PixivPicturesRename/'
 
 names = [name for name in os.listdir(pixiv_image_folder)
          if os.path.isfile(os.path.join(pixiv_image_folder, name))]
 
-id_dc = {}
+user_illust_count_map = {}
+failed_image_list = []
 
 
-def pre_handler_file_name():
-    file_name_s = file_name.split('_')
-    if file_name_s[0] in id_dc:
-        id_dc[file_name_s[0]] = id_dc[file_name_s[0]] + 1
+def pre_handler_file_name(file_name):
+    user_id = file_name.split('_')[0]
+    if user_id in user_illust_count_map:
+        user_illust_count_map[user_id] = user_illust_count_map[user_id] + 1
     else:
-        id_dc[file_name_s[0]] = 1
+        user_illust_count_map[user_id] = 1
 
 
-def move_file_name():
-    file_name_s2 = file_name2.split('_')
+def move_file_name(file_name):
+    user_id = file_name.split('_')[0]
     try:
-        if file_name_s2[0] in id_dc and id_dc[file_name_s2[0]] >= 6:
-            new_file_path = new_pixiv_image_folder + file_name_s2[0] + '/'
+        origin_file_name = pixiv_image_folder + file_name
+        if user_id in user_illust_count_map and user_illust_count_map[user_id] >= 6:
+            new_file_path = pixiv_image_folder + user_id + '/'
             if not os.path.exists(new_file_path):
                 os.mkdir(new_file_path)
-            os.rename(pixiv_image_folder + file_name2, new_file_path + file_name2)
+            os.rename(origin_file_name, new_file_path + file_name)
         else:
-            os.rename(pixiv_image_folder + file_name2, new_pixiv_image_folder + file_name2)
+            os.rename(origin_file_name, pixiv_image_folder + file_name)
     except FileNotFoundError:
-        print('Data size error111#', file_name2)
-        failed_item_er = {'file_name2': file_name2, 'id_str': 'None', 'error_msg': 'Data size error'}
+        print('Data size error111#', file_name)
+        failed_item_er = {'file_name2': file_name, 'id_str': 'None', 'error_msg': 'Data size error'}
         failed_image_list.append(failed_item_er)
 
 
 if __name__ == '__main__':
     total_img = len(names)
-    for file_name in names:
-        if file_name.endswith('.jpg'):
-            pre_handler_file_name()
-        elif file_name.endswith('.png'):
-            pre_handler_file_name()
-        elif file_name.endswith('.gif'):
-            pre_handler_file_name()
+    for _f_name in names:
+        if _f_name.endswith('.jpg'):
+            pre_handler_file_name(_f_name)
+        elif _f_name.endswith('.png'):
+            pre_handler_file_name(_f_name)
+        elif _f_name.endswith('.gif'):
+            pre_handler_file_name(_f_name)
         else:
-            if file_name != '.DS_Store':
-                print('Not is end with .jpg/png/gif#', file_name)
-                failed_item = {'file_name': file_name, 'id_str': 'None', 'error_msg': 'Not is end with .jpg/png/gif'}
+            if _f_name != '.DS_Store':
+                print('Not is end with .jpg/png/gif#', _f_name)
+                failed_item = {'file_name': _f_name, 'id_str': 'None', 'error_msg': 'Not is end with .jpg/png/gif'}
                 failed_image_list.append(failed_item)
 
-    for file_name2 in names:
-        if file_name2.endswith('.jpg'):
-            move_file_name()
-        elif file_name2.endswith('.png'):
-            move_file_name()
-        elif file_name2.endswith('.gif'):
-            move_file_name()
+    for _f_name in names:
+        if _f_name.endswith('.jpg'):
+            move_file_name(_f_name)
+        elif _f_name.endswith('.png'):
+            move_file_name(_f_name)
+        elif _f_name.endswith('.gif'):
+            move_file_name(_f_name)
         else:
             pass
 

@@ -7,7 +7,7 @@ from pixivpy_async import AppPixivAPI
 
 sys.dont_write_bytecode = True
 
-_USERNAME = "1570682285"
+_USERNAME = "weimiku"
 _PASSWORD = "Moe.me@233"
 _TOKEN = "uXooTT7xz9v4mflnZqJUO7po9W5ciouhKrIDnI2Dv3c"
 
@@ -28,9 +28,9 @@ async def appapi_illust(aapi):
 
 
 async def _login(aapi):
-    await aapi.login(_USERNAME, _PASSWORD)
+    # await aapi.login(_USERNAME, _PASSWORD)
     # await aapi.login(refresh_token=_TOKEN)
-    # await aapi.login_web()
+    await aapi.login_web()
 
 
 async def _main(aapi):

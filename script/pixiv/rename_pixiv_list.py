@@ -6,10 +6,7 @@ import time
 failed_image_list = []
 failure_image_list = []
 
-# pixiv_image_folder = '/Users/zhengwei.zhang/Pictures/TestPixiv/'
-pixiv_image_folder = '/Volumes/Hikvsion/WallhavenPictures/PxTemp/PixivPictures1/'
-# pixiv_image_folder = '/Volumes/Common/PixivPictures/'
-new_pixiv_image_folder = '/Volumes/Hikvsion/WallhavenPictures/PxTemp/PixivPictures/'
+pixiv_image_folder = '/Volumes/Common/PixivPictures/'
 
 names = [name for name in os.listdir(pixiv_image_folder)
          if os.path.isfile(os.path.join(pixiv_image_folder, name))]
@@ -22,10 +19,9 @@ def pre_handler_file_name(suffix):
     if file_name_s[2] == 'PX':
         new_file_name = new_file_name + suffix
         try:
-            os.rename(pixiv_image_folder + file_name, new_pixiv_image_folder + new_file_name)
+            os.rename(pixiv_image_folder + file_name, pixiv_image_folder + new_file_name)
             os.remove(pixiv_image_folder + file_name)
         except FileNotFoundError:
-            print('Data size error111#', file_name)
             failed_item = {'file_name': file_name, 'id_str': 'None', 'error_msg': 'Data size error'}
             failed_image_list.append(failed_item)
 
@@ -34,14 +30,12 @@ def pre_handler_file_name(suffix):
         if len(pv_num) < 3:
             new_file_name = new_file_name + '_' + pv_num + suffix
             try:
-                os.rename(pixiv_image_folder + file_name, new_pixiv_image_folder + new_file_name)
+                os.rename(pixiv_image_folder + file_name, pixiv_image_folder + new_file_name)
                 os.remove(pixiv_image_folder + file_name)
             except FileNotFoundError:
-                print('Data size error222#', file_name)
                 failed_item = {'file_name': file_name, 'id_str': 'None', 'error_msg': 'Data size error'}
                 failed_image_list.append(failed_item)
         else:
-            print('Data size error333#', file_name)
             failed_item = {'file_name': file_name, 'id_str': 'None', 'error_msg': 'Data size error'}
             failed_image_list.append(failed_item)
 
